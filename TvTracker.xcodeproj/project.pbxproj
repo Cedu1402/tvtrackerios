@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */; };
+		40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA92559C3EE00B05DBD /* ContentView.swift */; };
+		40C69FAC2559C3F200B05DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C69FAB2559C3F200B05DBD /* Assets.xcassets */; };
+		40C69FAF2559C3F200B05DBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C69FAE2559C3F200B05DBD /* Preview Assets.xcassets */; };
+		40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FB02559C3F200B05DBD /* Persistence.swift */; };
+		40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */; };
+		40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */; };
+		40C69FCA2559C3F300B05DBD /* TvTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40C69FBB2559C3F300B05DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C69F9C2559C3EE00B05DBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40C69FA32559C3EE00B05DBD;
+			remoteInfo = TvTracker;
+		};
+		40C69FC62559C3F300B05DBD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C69F9C2559C3EE00B05DBD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40C69FA32559C3EE00B05DBD;
+			remoteInfo = TvTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40C69FA42559C3EE00B05DBD /* TvTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerApp.swift; sourceTree = "<group>"; };
+		40C69FA92559C3EE00B05DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		40C69FAB2559C3F200B05DBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40C69FAE2559C3F200B05DBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40C69FB02559C3F200B05DBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		40C69FB32559C3F200B05DBD /* TvTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TvTracker.xcdatamodel; sourceTree = "<group>"; };
+		40C69FB52559C3F200B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C69FBA2559C3F300B05DBD /* TvTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerTests.swift; sourceTree = "<group>"; };
+		40C69FC02559C3F300B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerUITests.swift; sourceTree = "<group>"; };
+		40C69FCB2559C3F300B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40C69FA12559C3EE00B05DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FB72559C3F300B05DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FC22559C3F300B05DBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40C69F9B2559C3EE00B05DBD = {
+			isa = PBXGroup;
+			children = (
+				40C69FA62559C3EE00B05DBD /* TvTracker */,
+				40C69FBD2559C3F300B05DBD /* TvTrackerTests */,
+				40C69FC82559C3F300B05DBD /* TvTrackerUITests */,
+				40C69FA52559C3EE00B05DBD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40C69FA52559C3EE00B05DBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40C69FA42559C3EE00B05DBD /* TvTracker.app */,
+				40C69FBA2559C3F300B05DBD /* TvTrackerTests.xctest */,
+				40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40C69FA62559C3EE00B05DBD /* TvTracker */ = {
+			isa = PBXGroup;
+			children = (
+				40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */,
+				40C69FA92559C3EE00B05DBD /* ContentView.swift */,
+				40C69FAB2559C3F200B05DBD /* Assets.xcassets */,
+				40C69FB02559C3F200B05DBD /* Persistence.swift */,
+				40C69FB52559C3F200B05DBD /* Info.plist */,
+				40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */,
+				40C69FAD2559C3F200B05DBD /* Preview Content */,
+			);
+			path = TvTracker;
+			sourceTree = "<group>";
+		};
+		40C69FAD2559C3F200B05DBD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				40C69FAE2559C3F200B05DBD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		40C69FBD2559C3F300B05DBD /* TvTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */,
+				40C69FC02559C3F300B05DBD /* Info.plist */,
+			);
+			path = TvTrackerTests;
+			sourceTree = "<group>";
+		};
+		40C69FC82559C3F300B05DBD /* TvTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */,
+				40C69FCB2559C3F300B05DBD /* Info.plist */,
+			);
+			path = TvTrackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40C69FA32559C3EE00B05DBD /* TvTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C69FCE2559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTracker" */;
+			buildPhases = (
+				40C69FA02559C3EE00B05DBD /* Sources */,
+				40C69FA12559C3EE00B05DBD /* Frameworks */,
+				40C69FA22559C3EE00B05DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TvTracker;
+			productName = TvTracker;
+			productReference = 40C69FA42559C3EE00B05DBD /* TvTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40C69FB92559C3F300B05DBD /* TvTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C69FD12559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTrackerTests" */;
+			buildPhases = (
+				40C69FB62559C3F300B05DBD /* Sources */,
+				40C69FB72559C3F300B05DBD /* Frameworks */,
+				40C69FB82559C3F300B05DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40C69FBC2559C3F300B05DBD /* PBXTargetDependency */,
+			);
+			name = TvTrackerTests;
+			productName = TvTrackerTests;
+			productReference = 40C69FBA2559C3F300B05DBD /* TvTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40C69FC42559C3F300B05DBD /* TvTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C69FD42559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTrackerUITests" */;
+			buildPhases = (
+				40C69FC12559C3F300B05DBD /* Sources */,
+				40C69FC22559C3F300B05DBD /* Frameworks */,
+				40C69FC32559C3F300B05DBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40C69FC72559C3F300B05DBD /* PBXTargetDependency */,
+			);
+			name = TvTrackerUITests;
+			productName = TvTrackerUITests;
+			productReference = 40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40C69F9C2559C3EE00B05DBD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					40C69FA32559C3EE00B05DBD = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					40C69FB92559C3F300B05DBD = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 40C69FA32559C3EE00B05DBD;
+					};
+					40C69FC42559C3F300B05DBD = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 40C69FA32559C3EE00B05DBD;
+					};
+				};
+			};
+			buildConfigurationList = 40C69F9F2559C3EE00B05DBD /* Build configuration list for PBXProject "TvTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40C69F9B2559C3EE00B05DBD;
+			productRefGroup = 40C69FA52559C3EE00B05DBD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40C69FA32559C3EE00B05DBD /* TvTracker */,
+				40C69FB92559C3F300B05DBD /* TvTrackerTests */,
+				40C69FC42559C3F300B05DBD /* TvTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40C69FA22559C3EE00B05DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C69FAF2559C3F200B05DBD /* Preview Assets.xcassets in Resources */,
+				40C69FAC2559C3F200B05DBD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FB82559C3F300B05DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FC32559C3F300B05DBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40C69FA02559C3EE00B05DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */,
+				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
+				40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */,
+				40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FB62559C3F300B05DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40C69FC12559C3F300B05DBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C69FCA2559C3F300B05DBD /* TvTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40C69FBC2559C3F300B05DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40C69FA32559C3EE00B05DBD /* TvTracker */;
+			targetProxy = 40C69FBB2559C3F300B05DBD /* PBXContainerItemProxy */;
+		};
+		40C69FC72559C3F300B05DBD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40C69FA32559C3EE00B05DBD /* TvTracker */;
+			targetProxy = 40C69FC62559C3F300B05DBD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40C69FCC2559C3F300B05DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40C69FCD2559C3F300B05DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40C69FCF2559C3F300B05DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TvTracker/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TvTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40C69FD02559C3F300B05DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TvTracker/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TvTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		40C69FD22559C3F300B05DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TvTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TvTracker.app/TvTracker";
+			};
+			name = Debug;
+		};
+		40C69FD32559C3F300B05DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TvTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TvTracker.app/TvTracker";
+			};
+			name = Release;
+		};
+		40C69FD52559C3F300B05DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TvTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TvTracker;
+			};
+			name = Debug;
+		};
+		40C69FD62559C3F300B05DBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TvTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cedu.TvTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TvTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40C69F9F2559C3EE00B05DBD /* Build configuration list for PBXProject "TvTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C69FCC2559C3F300B05DBD /* Debug */,
+				40C69FCD2559C3F300B05DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C69FCE2559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C69FCF2559C3F300B05DBD /* Debug */,
+				40C69FD02559C3F300B05DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C69FD12559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C69FD22559C3F300B05DBD /* Debug */,
+				40C69FD32559C3F300B05DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C69FD42559C3F300B05DBD /* Build configuration list for PBXNativeTarget "TvTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C69FD52559C3F300B05DBD /* Debug */,
+				40C69FD62559C3F300B05DBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				40C69FB32559C3F200B05DBD /* TvTracker.xcdatamodel */,
+			);
+			currentVersion = 40C69FB32559C3F200B05DBD /* TvTracker.xcdatamodel */;
+			path = TvTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 40C69F9C2559C3EE00B05DBD /* Project object */;
+}
