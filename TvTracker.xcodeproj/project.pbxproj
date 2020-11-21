@@ -103,15 +103,15 @@
 		40C69FA62559C3EE00B05DBD /* TvTracker */ = {
 			isa = PBXGroup;
 			children = (
+				84EDF06D25692C6C00037F00 /* Views */,
+				84EDF06725692BAA00037F00 /* Models */,
+				84EDF06625692B9800037F00 /* Services */,
 				40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */,
-				40C69FA92559C3EE00B05DBD /* ContentView.swift */,
 				40C69FAB2559C3F200B05DBD /* Assets.xcassets */,
 				40C69FB02559C3F200B05DBD /* Persistence.swift */,
 				40C69FB52559C3F200B05DBD /* Info.plist */,
 				40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */,
 				40C69FAD2559C3F200B05DBD /* Preview Content */,
-				84EDF0582569279800037F00 /* SeriesView.swift */,
-				84EDF05D2569280000037F00 /* FavoritesView.swift */,
 			);
 			path = TvTracker;
 			sourceTree = "<group>";
@@ -140,6 +140,30 @@
 				40C69FCB2559C3F300B05DBD /* Info.plist */,
 			);
 			path = TvTrackerUITests;
+			sourceTree = "<group>";
+		};
+		84EDF06625692B9800037F00 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		84EDF06725692BAA00037F00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84EDF06D25692C6C00037F00 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84EDF0582569279800037F00 /* SeriesView.swift */,
+				84EDF05D2569280000037F00 /* FavoritesView.swift */,
+				40C69FA92559C3EE00B05DBD /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
