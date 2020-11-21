@@ -17,15 +17,11 @@ struct ListImageView: View {
         URLImage(url: url,
                          options: URLImageOptions(),
                          empty: {
-                            Text("Nothing here")            // This view is displayed before download starts
+                            Text("Nothing here") // This view is displayed before download starts
                          },
                          inProgress: { progress -> Text in  // Display progress
-                            if let progress = progress {
-                                return Text("Loading...")
-                            }
-                            else {
-                                return Text("Loading...")
-                            }
+
+                            return Text("Loading...").font(.system(size: 12))
                          },
                          failure: { error, retry in         // Display error and retry button
                             VStack{
@@ -39,10 +35,9 @@ struct ListImageView: View {
                          },
                          content: { image in                // Content view
                             image
+                                .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .clipShape(Circle())
-                                .shadow(radius: 5)
-                                .overlay(Circle().stroke(lineWidth: 1))
+                                .clipShape(Rectangle())
                          })
     }
     
@@ -52,6 +47,6 @@ struct ListImageView: View {
 
 struct ListImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ListImageView(url: URL(string: "https://www.thetvdb.com/banners/posters/12dca.jpg")!)
+        ListImageView(url: URL(string: "https://www.thetvdb.com/banners/posters/121361-1.jpg")!)
     }
 }
