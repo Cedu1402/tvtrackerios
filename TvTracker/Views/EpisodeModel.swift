@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct EpisodeApiModel {
     let season: Int
     let number: Int
