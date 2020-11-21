@@ -17,6 +17,19 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
+        TabView {
+            SeriesView()
+                .tabItem  {
+                    Image(systemName: "tv.fill")
+                    Text("Releases")
+                }
+            FavoritesView()
+                .tabItem  {
+                    Image(systemName: "star.fill")
+                    Text("Favorites")
+                }
+        }
+        
         List {
             ForEach(items) { item in
                 Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -32,6 +45,7 @@ struct ContentView: View {
                 Label("Add Item", systemImage: "plus")
             }
         }
+        
     }
 
     private func addItem() {
@@ -45,7 +59,7 @@ struct ContentView: View {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                fatalError("Unresolved error LOL \(nsError), \(nsError.userInfo)")
             }
         }
     }

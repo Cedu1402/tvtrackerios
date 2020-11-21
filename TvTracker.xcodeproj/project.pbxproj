@@ -15,6 +15,8 @@
 		40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */; };
 		40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */; };
 		40C69FCA2559C3F300B05DBD /* TvTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */; };
+		84EDF0592569279800037F00 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF0582569279800037F00 /* SeriesView.swift */; };
+		84EDF05E2569280000037F00 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF05D2569280000037F00 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerUITests.swift; sourceTree = "<group>"; };
 		40C69FCB2559C3F300B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EDF0582569279800037F00 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
+		84EDF05D2569280000037F00 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				40C69FB52559C3F200B05DBD /* Info.plist */,
 				40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */,
 				40C69FAD2559C3F200B05DBD /* Preview Content */,
+				84EDF0582569279800037F00 /* SeriesView.swift */,
+				84EDF05D2569280000037F00 /* FavoritesView.swift */,
 			);
 			path = TvTracker;
 			sourceTree = "<group>";
@@ -267,8 +273,10 @@
 			files = (
 				40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */,
 				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
+				84EDF05E2569280000037F00 /* FavoritesView.swift in Sources */,
 				40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */,
 				40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */,
+				84EDF0592569279800037F00 /* SeriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
