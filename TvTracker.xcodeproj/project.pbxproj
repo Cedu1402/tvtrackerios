@@ -47,11 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		40A942FD256935C80034C307 /* ShowApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowApiModel.swift; sourceTree = SOURCE_ROOT; };
-		40A94302256936840034C307 /* TraktIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraktIdModel.swift; sourceTree = SOURCE_ROOT; };
-		40A94307256938120034C307 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = SOURCE_ROOT; };
-		40A9430F256939F80034C307 /* ShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowService.swift; sourceTree = SOURCE_ROOT; };
-		40A9431425693AAF0034C307 /* TraktApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraktApi.swift; sourceTree = SOURCE_ROOT; };
+		40A942FD256935C80034C307 /* ShowApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowApiModel.swift; path = "TvTracker/New Group/ShowApiModel.swift"; sourceTree = SOURCE_ROOT; };
+		40A94302256936840034C307 /* TraktIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TraktIdModel.swift; path = "TvTracker/New Group/TraktIdModel.swift"; sourceTree = SOURCE_ROOT; };
+		40A94307256938120034C307 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeasonModel.swift; path = "TvTracker/New Group/SeasonModel.swift"; sourceTree = SOURCE_ROOT; };
+		40A9430F256939F80034C307 /* ShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowService.swift; path = "TvTracker/New Group/ShowService.swift"; sourceTree = SOURCE_ROOT; };
+		40A9431425693AAF0034C307 /* TraktApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TraktApi.swift; path = "TvTracker/New Group/TraktApi.swift"; sourceTree = SOURCE_ROOT; };
 		40C69FA42559C3EE00B05DBD /* TvTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerApp.swift; sourceTree = "<group>"; };
 		40C69FA92559C3EE00B05DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,9 +66,9 @@
 		40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerUITests.swift; sourceTree = "<group>"; };
 		40C69FCB2559C3F300B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40CAFE6325696BEA002890DE /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = SOURCE_ROOT; };
+		40CAFE6325696BEA002890DE /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = "TvTracker/New Group/ImageLoader.swift"; sourceTree = SOURCE_ROOT; };
 		40CAFE6E2569732D002890DE /* ListImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImageView.swift; sourceTree = "<group>"; };
-		40CAFE7325697960002890DE /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EpisodeModel.swift; path = TvTracker/Views/EpisodeModel.swift; sourceTree = SOURCE_ROOT; };
+		40CAFE7325697960002890DE /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EpisodeModel.swift; path = "TvTracker/New Group/EpisodeModel.swift"; sourceTree = SOURCE_ROOT; };
 		84EDF0582569279800037F00 /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
 		84EDF05D2569280000037F00 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,9 +123,9 @@
 		40C69FA62559C3EE00B05DBD /* TvTracker */ = {
 			isa = PBXGroup;
 			children = (
+				40CAFE7925697D73002890DE /* Services */,
+				40CAFE7825697D5A002890DE /* Models */,
 				84EDF06D25692C6C00037F00 /* Views */,
-				84EDF06725692BAA00037F00 /* Models */,
-				84EDF06625692B9800037F00 /* Services */,
 				40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */,
 				40C69FAB2559C3F200B05DBD /* Assets.xcassets */,
 				40C69FB02559C3F200B05DBD /* Persistence.swift */,
@@ -162,17 +162,7 @@
 			path = TvTrackerUITests;
 			sourceTree = "<group>";
 		};
-		84EDF06625692B9800037F00 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				40A9430F256939F80034C307 /* ShowService.swift */,
-				40A9431425693AAF0034C307 /* TraktApi.swift */,
-				40CAFE6325696BEA002890DE /* ImageLoader.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		84EDF06725692BAA00037F00 /* Models */ = {
+		40CAFE7825697D5A002890DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				40A942FD256935C80034C307 /* ShowApiModel.swift */,
@@ -181,6 +171,16 @@
 				40CAFE7325697960002890DE /* EpisodeModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		40CAFE7925697D73002890DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				40A9430F256939F80034C307 /* ShowService.swift */,
+				40A9431425693AAF0034C307 /* TraktApi.swift */,
+				40CAFE6325696BEA002890DE /* ImageLoader.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		84EDF06D25692C6C00037F00 /* Views */ = {
