@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import TvTracker
+import Alamofire
 
 class TvTrackerTests: XCTestCase {
 
@@ -21,6 +22,15 @@ class TvTrackerTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let e = expectation(description: "Alamofire")
+        
+        ShowService().getReleases { (data) in
+            var test = data
+            XCTAssertTrue(true, "testestt")
+            e.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     func testPerformanceExample() throws {

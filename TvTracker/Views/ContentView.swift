@@ -13,7 +13,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            SeriesView()
+            ReleaseView()
                 .tabItem  {
                     Image(systemName: "tv.fill")
                     Text("Releases")
@@ -24,8 +24,9 @@ struct ContentView: View {
                     Text("Favorites")
                 }
         }
-
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
