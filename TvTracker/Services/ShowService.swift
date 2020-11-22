@@ -10,35 +10,48 @@ import Alamofire
 
 class ShowService {
 
-    func getReleases(success: @escaping(_ result: [ShowModel]) -> Void) -> Void {
+    func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
-        let realeseURL = TraktApi.baseUrl + "shows/trending?extended=full"
         
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "trakt-api-version": "2",
-            "trakt-api-key": TraktApi.key
-        ]
+        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/trending?extended=full&page=\(pageNr)") else {return }
         
-        AF.request(realeseURL, headers: headers).responseData{ response in
-            do {
-                let result = try JSONDecoder().decode([ShowApiModel].self, from: response.data!)
-                var shows = [ShowModel]()
-                
-                for data in result{
-                    shows.append(ShowModel(id: UUID(),
-                                           title: data.show.title,
-                                           overview: data.show.overview,
-                                           trakt: data.show.ids.trakt,
-                                           imdb: data.show.ids.imdb,
-                                           tvdb: data.show.ids.tvdb,
-                                           imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!))
-                }
-                success(shows)
-            }catch {
-                print("Unexpected error: \(error).")
+        var urlRequest = URLRequest(url: traktUrl)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("2", forHTTPHeaderField: "trakt-api-version")
+        urlRequest.setValue(TraktApi.key, forHTTPHeaderField: "trakt-api-key")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
+            let result = try! JSONDecoder().decode([ShowApiModel].self, from: response!)
+            var shows = [ShowModel]()
+            
+            for data in result{
+                shows.append(ShowModel(id: UUID(),
+                                       title: data.show.title,
+                                       overview: data.show.overview,
+                                       trakt: data.show.ids.trakt,
+                                       imdb: data.show.ids.imdb,
+                                       tvdb: data.show.ids.tvdb,
+                                       imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!))
+            }
+
+            DispatchQueue.main.async{
+                completion(shows)
             }
         }
+        .resume()
+    }
+    
+    func getImageUrl(completion: @escaping ([ShowApiModel]) -> ()) {
+        guard let url = URL(string: "Test.ch") else {return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let urls = try! JSONDecoder().decode([ShowApiModel].self, from: data!)
+            
+            DispatchQueue.main.async{
+                completion(urls)
+            }
+        }
+        .resume()
         
     }
 }

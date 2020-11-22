@@ -28,6 +28,7 @@
 		84EF05662569AB9700D62C7D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05632569AB9700D62C7D /* ImageLoader.swift */; };
 		84EF05672569AB9700D62C7D /* ShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05642569AB9700D62C7D /* ShowService.swift */; };
 		84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF056E2569B82500D62C7D /* SearchBar.swift */; };
+		84FED80D256AAF6A0057C5B4 /* ReleaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FED80C256AAF6A0057C5B4 /* ReleaseDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		84EF05632569AB9700D62C7D /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		84EF05642569AB9700D62C7D /* ShowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowService.swift; sourceTree = "<group>"; };
 		84EF056E2569B82500D62C7D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		84FED80C256AAF6A0057C5B4 /* ReleaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				84EF05632569AB9700D62C7D /* ImageLoader.swift */,
 				84EF05642569AB9700D62C7D /* ShowService.swift */,
 				84EF05622569AB9700D62C7D /* TraktApi.swift */,
+				84FED80C256AAF6A0057C5B4 /* ReleaseDataSource.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */,
 				84EF055E2569AB7300D62C7D /* SeasonModel.swift in Sources */,
 				40CAFE6F2569732D002890DE /* ListImageView.swift in Sources */,
+				84FED80D256AAF6A0057C5B4 /* ReleaseDataSource.swift in Sources */,
 				84EDF0592569279800037F00 /* ReleaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,10 +13,12 @@ struct ReleaseView: View {
     @State var shows = [ShowModel]()
     @State var searchText = ""
     
+    @StateObject var dataSource = ReleaseDataSource()
+    
     let showService = ShowService()
 
     func getSeries(){
-       self.showService.getReleases { (data) in
+        self.showService.getReleases(pageNr: 1) { (data) in
           self.shows.append(contentsOf: data)
         }
     }
@@ -24,32 +26,33 @@ struct ReleaseView: View {
     var body: some View {
         
         NavigationView {
-            List() {
+            List {
                 SearchBar(text: $searchText)
                 
-                ForEach(shows) {
-                show in
-                NavigationLink(
-                    destination: /* HIER RICHTIGE VIEW*/ EmptyView()) {
-                        HStack {
-                            ListImageView(url: show.imageURL).frame(width: 68, height: 100).cornerRadius(8)
-                            VStack {
-                                HStack {
-                                    Text(show.title).frame(maxWidth: .infinity, alignment: .leading).font(.system(size: 18))
-                                    Image(systemName: "star.fill").foregroundColor(Color(red: 1, green: 0.85, blue: 0)).padding(.trailing, 10)
+                ForEach(dataSource.shows) {
+                    show in
+                    NavigationLink(
+                        destination: /* HIER RICHTIGE VIEW*/ EmptyView()) {
+                            HStack {
+                                ListImageView(url: show.imageURL).frame(width: 68, height: 100).cornerRadius(8)
+                                VStack {
+                                    HStack {
+                                        Text(show.title).frame(maxWidth: .infinity, alignment: .leading).font(.system(size: 18))
+                                        Image(systemName: "star.fill").foregroundColor(Color(red: 1, green: 0.85, blue: 0)).padding(.trailing, 10)
+                                        
+                                    }.padding(.bottom, 10)
+                                    Text(show.overview).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 80, alignment: .topLeading).truncationMode(.tail).font(.system(size: 12))
                                     
-                                }.padding(.bottom, 10)
-                                Text(show.overview).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 80, alignment: .topLeading).truncationMode(.stail).font(.system(size: 12))
-                                
-                            }.padding(.leading, 10)
-                        }
+                                }.padding(.leading, 10)
+                            }
+                    }
                 }
-                    
+
+                if dataSource.isLoadingPage {
+                    ProgressView()
                 }
-            }.onAppear(perform: getSeries) //CHECKEN WEIL IMMER NEU HOLT BEI APPEAR 10*x
-            .navigationBarTitle("Releases")
+            }
         }
-       
     }
 }
 
