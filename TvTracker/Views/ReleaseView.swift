@@ -13,6 +13,7 @@ struct ReleaseView: View {
     @State var searchText = ""
     @State private var showingAlert = false
     @StateObject var dataSource = ReleaseDataSource()
+    @Environment(\.managedObjectContext) private var viewContext
     
     let showService = ShowService()
     
@@ -26,25 +27,31 @@ struct ReleaseView: View {
                         destination: /* HIER RICHTIGE VIEW*/ EmptyView()) {
                             HStack {
                                 ListImageView(url: show.imageURL)
-                                    .frame(width: 68, height: 100)
+                                    .frame(width: 68,
+                                           height: 100)
                                     .cornerRadius(8)
                                 VStack {
                                     HStack {
                                         Text(show.title)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .frame(maxWidth: .infinity,
+                                                   alignment: .leading)
                                             .font(.system(size: 18))
                                         FavoriteStarView(show: show)
-                                        .padding(.trailing, 10)
+                                            .environment(\.managedObjectContext, viewContext)
+                                            .padding(.trailing, 10)
                                     }.padding(.bottom, 10)
                                     Text(show.overview)
-                                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 80, alignment: .topLeading)
+                                        .frame(minWidth: 0,
+                                               maxWidth: .infinity,
+                                               minHeight: 0,
+                                               maxHeight: 80,
+                                               alignment: .topLeading)
                                         .truncationMode(.tail)
                                         .font(.system(size: 12))
                                 }.padding(.leading, 10)
                             }
                     }
                 }
-
                 if dataSource.isLoadingPage {
                     ProgressView()
                 }
@@ -54,7 +61,10 @@ struct ReleaseView: View {
 }
 
 struct SeriesView_Previews: PreviewProvider {
+    static let persistenceController = PersistenceController.shared
+    
     static var previews: some View {
         ReleaseView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }

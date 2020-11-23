@@ -49,7 +49,6 @@ struct FavoriteStarView: View {
             try managedObjectContext.save()
         } catch{
             let nserror = error as NSError
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
         
     }
