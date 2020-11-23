@@ -6,9 +6,13 @@
 //
 
 import Foundation
-import Alamofire
+import CoreData
 
 class ShowService {
+    
+    // core data context.
+    let persistenceController = PersistenceController.shared
+    
 
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
@@ -31,7 +35,8 @@ class ShowService {
                                        trakt: data.show.ids.trakt,
                                        imdb: data.show.ids.imdb,
                                        tvdb: data.show.ids.tvdb,
-                                       imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!))
+                                       imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!,
+                                       favorite: self.isFavorite(data: data)))
             }
 
             DispatchQueue.main.async{
@@ -52,6 +57,23 @@ class ShowService {
             }
         }
         .resume()
-        
     }
+    
+    
+    func isFavorite(data: ShowApiModel) -> Bool {
+        let query: NSFetchRequest<Show> = Show.fetchRequest()
+        let filter = NSPredicate(format: "trakt == %d", data.show.ids.trakt)
+        let sort = NSSortDescriptor(key: "trakt", ascending: true)
+        query.predicate = filter
+        query.sortDescriptors = [sort]
+        
+        do{
+            let result = try self.persistenceController.container.viewContext.count(for: query)
+            return result > 0
+        }catch{
+            return false
+        }
+    }
+    
+    
 }

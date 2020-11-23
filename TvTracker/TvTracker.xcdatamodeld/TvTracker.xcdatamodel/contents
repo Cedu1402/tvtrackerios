@@ -22,15 +22,15 @@
     </entity>
     <entity name="Show" representedClassName="Show" syncable="YES" codeGenerationType="class">
         <attribute name="imageURL" optional="YES" attributeType="URI"/>
-        <attribute name="imdbid" optional="YES" attributeType="String"/>
+        <attribute name="imdb" optional="YES" attributeType="String"/>
         <attribute name="overview" optional="YES" attributeType="String"/>
         <attribute name="titel" optional="YES" attributeType="String"/>
-        <attribute name="traktid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="tvdbid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="Show" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="Season" positionX="-63" positionY="27" width="128" height="148"/>
         <element name="Episode" positionX="-54" positionY="63" width="128" height="178"/>
+        <element name="Season" positionX="-63" positionY="27" width="128" height="148"/>
+        <element name="Show" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

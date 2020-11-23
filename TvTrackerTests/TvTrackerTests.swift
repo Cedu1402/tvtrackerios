@@ -24,7 +24,7 @@ class TvTrackerTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let e = expectation(description: "Alamofire")
         
-        ShowService().getReleases { (data) in
+        ShowService().getReleases(pageNr: 1) { (data) in
             var test = data
             XCTAssertTrue(true, "testestt")
             e.fulfill()

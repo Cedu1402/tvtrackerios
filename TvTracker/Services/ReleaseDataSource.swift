@@ -10,7 +10,7 @@ import Foundation
 class ReleaseDataSource: ObservableObject {
     @Published var shows = [ShowModel]()
     @Published var isLoadingPage = false
-
+    
     private var currentPage = 1
     private var canLoadMorePages = true
     private let showService = ShowService()
@@ -20,12 +20,12 @@ class ReleaseDataSource: ObservableObject {
     }
 
     func loadMoreContentIfNeeded(currentItem show: ShowModel?) {
-    guard let show = show else {
-        loadMoreContent()
-        return
-    }
+        guard let show = show else {
+            loadMoreContent()
+            return
+        }
 
-    let thresholdIndex = shows.index(shows.endIndex, offsetBy: -5)
+        let thresholdIndex = shows.index(shows.endIndex, offsetBy: -5)
         if shows.firstIndex(where: { $0.id == show.id }) == thresholdIndex {
             loadMoreContent()
         }
