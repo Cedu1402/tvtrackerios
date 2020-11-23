@@ -30,6 +30,20 @@ class ReleaseDataSource: ObservableObject {
             loadMoreContent()
         }
     }
+    
+    func changeFavoriteFlag(show: ShowModel){
+        if(!show.favorite){
+            self.showService.saveAsFavorite(show: show)
+            let index = self.shows.firstIndex(where: { (s) -> Bool in
+                s.trakt == show.trakt // test if this is the item you're looking for
+            })
+            var mutableShow = show
+            mutableShow.favorite = true
+            self.shows[index!] = mutableShow
+        }
+        
+    }
+    
 
     private func loadMoreContent() {
         guard !isLoadingPage && canLoadMorePages else {

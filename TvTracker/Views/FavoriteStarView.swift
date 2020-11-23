@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct FavoriteStarView: View {
+    @State var show: ShowModel
+    let onFavorite: () -> Void
     
-    var show: ShowModel
-    
-    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var showingAlert = false
     
     var body: some View {
@@ -28,7 +27,7 @@ struct FavoriteStarView: View {
                                     "\(self.show.title) aus Favoriten entfernen?" :
                                     "\(self.show.title) zu Favoriten hinzufügen?" ),
                   primaryButton: .default(Text("OK")){
-                    saveAsFavorite()
+                    self.onFavorite()
                   },
                   secondaryButton: .default(Text("Abbrechen"))
             )
@@ -36,26 +35,9 @@ struct FavoriteStarView: View {
         .buttonStyle(PlainButtonStyle())
     }
     
-    func saveAsFavorite(){
-        let show = Show(context: managedObjectContext)
-        show.titel = self.show.title
-        show.overview = self.show.overview
-        show.imdb = self.show.imdb
-        show.tvdb = Int64(self.show.tvdb)
-        show.trakt = Int64(self.show.trakt)
-        show.imageURL = self.show.imageURL
-    
-        do{
-            try managedObjectContext.save()
-        } catch{
-            let nserror = error as NSError
-        }
-        
-    }
 }
 
 struct FavoriteStarView_Previews: PreviewProvider {
-    
     static var previews: some View {
         FavoriteStarView(show: ShowModel(
                             id: UUID(),
@@ -65,7 +47,9 @@ struct FavoriteStarView_Previews: PreviewProvider {
                             imdb: "",
                             tvdb: 0,
                             imageURL: URL(string: "test.ch")!,
-                            favorite: true))
+                            favorite: true)){
+            
+        }
     }
 }
 

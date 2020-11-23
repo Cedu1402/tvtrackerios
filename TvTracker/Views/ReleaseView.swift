@@ -13,8 +13,6 @@ struct ReleaseView: View {
     @State var searchText = ""
     @State private var showingAlert = false
     @StateObject var dataSource = ReleaseDataSource()
-    @Environment(\.managedObjectContext) private var viewContext
-    
     let showService = ShowService()
     
     var body: some View {
@@ -36,9 +34,9 @@ struct ReleaseView: View {
                                             .frame(maxWidth: .infinity,
                                                    alignment: .leading)
                                             .font(.system(size: 18))
-                                        FavoriteStarView(show: show)
-                                            .environment(\.managedObjectContext, viewContext)
-                                            .padding(.trailing, 10)
+                                        FavoriteStarView(show: show){
+                                            dataSource.changeFavoriteFlag(show: show)
+                                        }.padding(.trailing, 10)
                                     }.padding(.bottom, 10)
                                     Text(show.overview)
                                         .frame(minWidth: 0,
@@ -61,10 +59,7 @@ struct ReleaseView: View {
 }
 
 struct SeriesView_Previews: PreviewProvider {
-    static let persistenceController = PersistenceController.shared
-    
     static var previews: some View {
         ReleaseView()
-            .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }

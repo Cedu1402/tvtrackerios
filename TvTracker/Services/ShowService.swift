@@ -75,5 +75,19 @@ class ShowService {
         }
     }
     
+    func saveAsFavorite(show: ShowModel){
+        let managedObjectContext = self.persistenceController.container.viewContext
+        let newFavoriteShow = Show(context: managedObjectContext)
+        newFavoriteShow.titel = show.title
+        newFavoriteShow.overview = show.overview
+        newFavoriteShow.imdb = show.imdb
+        newFavoriteShow.tvdb = Int64(show.tvdb)
+        newFavoriteShow.trakt = Int64(show.trakt)
+        newFavoriteShow.imageURL = show.imageURL
+        
+        try? managedObjectContext.save()
+    }
+    
+    
     
 }
