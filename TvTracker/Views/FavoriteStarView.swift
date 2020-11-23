@@ -44,6 +44,14 @@ struct FavoriteStarView: View {
         show.tvdb = Int64(self.show.tvdb)
         show.trakt = Int64(self.show.trakt)
         show.imageURL = self.show.imageURL
+    
+        do{
+            try managedObjectContext.save()
+        } catch{
+            let nserror = error as NSError
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+        
     }
 }
 
