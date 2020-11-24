@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import TvTracker
-import Alamofire
 
 class TvTrackerTests: XCTestCase {
 
@@ -19,25 +18,18 @@ class TvTrackerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let e = expectation(description: "Alamofire")
+    func testShowServiceApiCall() throws {
+        
+        let e = expectation(description: "Show service api request")
         
         ShowService().getReleases(pageNr: 1) { (data) in
-            var test = data
-            XCTAssertTrue(true, "testestt")
+            XCTAssertTrue(data.count > 0, "Check if shows found")
             e.fulfill()
         }
         
         waitForExpectations(timeout: 5.0, handler: nil)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
+    
 
 }
