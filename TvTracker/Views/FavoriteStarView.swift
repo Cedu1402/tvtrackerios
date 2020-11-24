@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoriteStarView: View {
     @Binding var show: ShowModel
+    
     let onFavorite: () -> Void
     
     @State private var showingAlert = false
