@@ -13,7 +13,7 @@ struct FavoritesView: View {
 
     @FetchRequest(
         entity: Show.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Show.title, ascending: false)]
+        sortDescriptors: [NSSortDescriptor(keyPath: \Show.title, ascending: true)]
     ) var shows: FetchedResults<Show>
     
     @State private var showingAlert = false
@@ -30,24 +30,14 @@ struct FavoritesView: View {
                         .cornerRadius(8)
                     VStack {
                         HStack {
-                            Text(show.title ?? "not found")
+                            Text(show.title ?? "")
                                 .frame(maxWidth: .infinity,
                                        alignment: .leading)
                                 .font(.system(size: 18))
-                            Button(action: {
-                                self.showingAlert = true
-                            }){
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
-                            }.alert(isPresented: $showingAlert) {
-                                Alert(title: Text("Favoriten"),
-                                      message: Text("\(show.title ?? "") aus Favoriten entfernen?"),
-                                      primaryButton: .default(Text("OK")){
-                                        // self.onFavorite()
-                                      },
-                                      secondaryButton: .default(Text("Abbrechen"))
-                                )
-                            }.buttonStyle(PlainButtonStyle())
+                            FavoriteStarDeleteOnlyView(show: show) {
+                                self.context.delete(show)
+                                try? self.context.save()
+                            }.padding(.trailing, 10)
                         }.padding(.bottom, 10)
                         Text(show.overview ?? "not found")
                             .frame(minWidth: 0,

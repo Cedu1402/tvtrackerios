@@ -22,21 +22,28 @@ class ShowService {
         urlRequest.setValue(TraktApi.key, forHTTPHeaderField: "trakt-api-key")
         
         URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
-            let result = try! JSONDecoder().decode([ShowApiModel].self, from: response!)
             var shows = [ShowModel]()
-            
-            for (index, data) in result.enumerated() {
-                shows.append(ShowModel(id: UUID(),
-                                       index: index + (pageNr - 1) * 10,
-                                       title: data.show.title,
-                                       overview: data.show.overview,
-                                       trakt: data.show.ids.trakt,
-                                       imdb: data.show.ids.imdb,
-                                       tvdb: data.show.ids.tvdb,
-                                       imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!,
-                                       favorite: self.showPersitencyService.isFavorite(data: data)))
+            if(response == nil){
+                return
             }
-
+            
+            do {
+                let result = try JSONDecoder().decode([ShowApiModel].self, from: response!)
+                for (index, data) in result.enumerated() {
+                    shows.append(ShowModel(id: UUID(),
+                                           index: index + (pageNr - 1) * 10,
+                                           title: data.show.title,
+                                           overview: data.show.overview,
+                                           trakt: data.show.ids.trakt,
+                                           imdb: data.show.ids.imdb,
+                                           tvdb: data.show.ids.tvdb,
+                                           imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!,
+                                           favorite: self.showPersitencyService.isFavorite(data: data)))
+                }
+            }catch{
+            
+            }
+            
             DispatchQueue.main.async{
                 completion(shows)
             }

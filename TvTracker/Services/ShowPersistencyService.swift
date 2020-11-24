@@ -35,7 +35,8 @@ class ShowPersistencyService {
         newFavoriteShow.imdb = show.imdb
         newFavoriteShow.tvdb = Int64(show.tvdb)
         newFavoriteShow.trakt = Int64(show.trakt)
-        newFavoriteShow.imageURL = show.imageURL
+        let localImage = self.saveImageToFileSystem(image: show.imageURL)
+        newFavoriteShow.imageURL = localImage
         try? managedObjectContext.save()
     }
     
@@ -55,6 +56,20 @@ class ShowPersistencyService {
         } catch {
             return
         }
+    }
+    
+    func saveImageToFileSystem(image: URL) -> URL {
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let name = image.deletingPathExtension().lastPathComponent + "." + image.pathExtension
+        let fileURL = documentsUrl.appendingPathComponent(name)
+        do {
+            let data = try Data(contentsOf: image) // not NSData !!
+            try data.write(to: fileURL, options: .atomic)
+        } catch {
+            print(error,"failed to save image")
+            return image
+        }
+        return fileURL
     }
     
 }
