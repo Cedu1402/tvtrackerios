@@ -46,6 +46,7 @@ struct FavoriteStarView_Previews: PreviewProvider {
      struct PreviewWrapper: View {
        @State() var show =  ShowModel(
         id: UUID(),
+        index: 1,
         title: "test show",
         overview: "",
         trakt: 0,

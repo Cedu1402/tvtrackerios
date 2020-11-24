@@ -19,6 +19,7 @@ struct ShowDetailModel: Codable {
 
 struct ShowModel : Identifiable {
     var id: UUID
+    let index: Int
     let title: String
     let overview: String
     let trakt: Int

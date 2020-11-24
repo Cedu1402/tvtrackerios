@@ -20,26 +20,25 @@ struct ReleaseView: View {
             List {
                 SearchBar(text: $searchText)
                 ForEach(dataSource.shows) {
-                 index in
-                    Text(String(index))
+                 show in
                     NavigationLink(
                         destination: /* HIER RICHTIGE VIEW*/ EmptyView()) {
                             HStack {
-                                ListImageView(url: dataSource.shows[index].imageURL)
+                                ListImageView(url: show.imageURL)
                                     .frame(width: 68,
                                            height: 100)
                                     .cornerRadius(8)
                                 VStack {
                                     HStack {
-                                        Text(dataSource.shows[index].title)
+                                        Text(show.title)
                                             .frame(maxWidth: .infinity,
                                                    alignment: .leading)
                                             .font(.system(size: 18))
-                                        FavoriteStarView(show: $dataSource.shows[index]){
-                                            dataSource.changeFavoriteFlag(show: dataSource.shows[index])
+                                        FavoriteStarView(show: $dataSource.shows[show.index]){
+                                            dataSource.changeFavoriteFlag(index: show.index)
                                         }.padding(.trailing, 10)
                                     }.padding(.bottom, 10)
-                                    Text(dataSource.shows[index].overview)
+                                    Text(show.overview)
                                         .frame(minWidth: 0,
                                                maxWidth: .infinity,
                                                minHeight: 0,

@@ -31,27 +31,17 @@ class ReleaseDataSource: ObservableObject {
         }
     }
     
-    func changeFavoriteFlag(show: ShowModel){
+    func changeFavoriteFlag(index: Int){
+        let show = self.shows[index]
+        var mutableShow = show
         if(!show.favorite){
             self.showService.saveAsFavorite(show: show)
-            let index = self.shows.firstIndex(where: { (s) -> Bool in
-                s.trakt == show.trakt // test if this is the item you're looking for
-            })
-            var mutableShow = show
-            self.objectWillChange.send()
             mutableShow.favorite = true
-            self.shows.remove(at: index!)
-            self.shows.insert(mutableShow, at: index!)
-            // self.shows.append(mutableShow)
         }else {
-            let index = self.shows.firstIndex(where: { (s) -> Bool in
-                s.trakt == show.trakt // test if this is the item you're looking for
-            })
-            var mutableShow = show
             mutableShow.favorite = false
-            self.shows.remove(at: index!)
-            self.shows.insert(mutableShow, at: index!)
         }
+        self.shows.remove(at: index)
+        self.shows.insert(mutableShow, at: index)
     }
     
 

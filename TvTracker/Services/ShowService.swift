@@ -28,8 +28,9 @@ class ShowService {
             let result = try! JSONDecoder().decode([ShowApiModel].self, from: response!)
             var shows = [ShowModel]()
             
-            for data in result{
+            for (index, data) in result.enumerated() {
                 shows.append(ShowModel(id: UUID(),
+                                       index: index,
                                        title: data.show.title,
                                        overview: data.show.overview,
                                        trakt: data.show.ids.trakt,
