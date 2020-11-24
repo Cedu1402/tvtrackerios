@@ -9,19 +9,15 @@ import SwiftUI
 
 struct FavoriteStarView: View {
     @Binding var show: ShowModel
-    
     let onFavorite: () -> Void
-    
     @State private var showingAlert = false
     
     var body: some View {
         Button(action: {
-            print("Button was tapped")
             self.showingAlert = true
         }) {
             Image(systemName: "star.fill")
-                .foregroundColor(show.favorite ?
-                                    Color(red: 1, green: 0.85, blue: 0) : Color.gray)
+                .foregroundColor(show.favorite ? Color(red: 1, green: 0.85, blue: 0) : Color.gray)
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Favoriten"),
                   message: Text(self.show.favorite ?

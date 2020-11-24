@@ -14,7 +14,8 @@ class ReleaseDataSource: ObservableObject {
     private var currentPage = 1
     private var canLoadMorePages = true
     private let showService = ShowService()
-
+    private let showPersitencyService = ShowPersistencyService()
+    
     init() {
         loadMoreContent()
     }
@@ -35,10 +36,10 @@ class ReleaseDataSource: ObservableObject {
         let show = self.shows[index]
         var mutableShow = show
         if(!show.favorite){
-            self.showService.saveAsFavorite(show: show)
+            self.showPersitencyService.saveAsFavorite(show: show)
             mutableShow.favorite = true
         }else {
-            self.showService.removeFavorite(show: show)
+            self.showPersitencyService.removeFavorite(show: show)
             mutableShow.favorite = false
         }
         self.shows[index] = mutableShow

@@ -13,8 +13,11 @@ struct FavoritesView: View {
 
     @FetchRequest(
         entity: Show.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Show.titel, ascending: false)]
+        sortDescriptors: [NSSortDescriptor(keyPath: \Show.title, ascending: false)]
     ) var shows: FetchedResults<Show>
+    
+    @State private var showingAlert = false
+    
     
     var body: some View {
         List{
@@ -27,21 +30,24 @@ struct FavoritesView: View {
                         .cornerRadius(8)
                     VStack {
                         HStack {
-                            Text(show.titel ?? "not found")
+                            Text(show.title ?? "not found")
                                 .frame(maxWidth: .infinity,
                                        alignment: .leading)
                                 .font(.system(size: 18))
-                            /*FavoriteStarView(show: ShowModel(id: UUID(),
-                                                             index: 1,
-                                                             title: show.titel ?? "",
-                                                             overview: show.overview ?? "",
-                                                             trakt: Int(show.trakt ?? 1),
-                                                             imdb: show.imdb ?? "",
-                                                             tvdb: Int(show.tvdb ?? 1),
-                                                             imageURL: show.imageURL ?? URL(string: "Failed")!,
-                                                             favorite: true)){
-                                // dataSource.changeFavoriteFlag(index: show.index)
-                            }.padding(.trailing, 10) */
+                            Button(action: {
+                                self.showingAlert = true
+                            }){
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
+                            }.alert(isPresented: $showingAlert) {
+                                Alert(title: Text("Favoriten"),
+                                      message: Text("\(show.title ?? "") aus Favoriten entfernen?"),
+                                      primaryButton: .default(Text("OK")){
+                                        // self.onFavorite()
+                                      },
+                                      secondaryButton: .default(Text("Abbrechen"))
+                                )
+                            }.buttonStyle(PlainButtonStyle())
                         }.padding(.bottom, 10)
                         Text(show.overview ?? "not found")
                             .frame(minWidth: 0,
@@ -62,7 +68,7 @@ struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
         let testShow = Show(context: context)
-        testShow.titel = "Test Title"
+        testShow.title = "Test Title"
         testShow.overview = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo"
         
         return FavoritesView().environment(\.managedObjectContext, context)

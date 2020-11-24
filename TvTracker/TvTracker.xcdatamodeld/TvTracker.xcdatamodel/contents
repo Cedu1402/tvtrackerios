@@ -25,7 +25,7 @@
         <attribute name="imageURL" optional="YES" attributeType="URI"/>
         <attribute name="imdb" optional="YES" attributeType="String"/>
         <attribute name="overview" optional="YES" attributeType="String"/>
-        <attribute name="titel" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>

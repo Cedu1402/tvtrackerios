@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4057AE4D256B1F140099EE8D /* FavoriteStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */; };
+		405B2D06256D9CD200A42BFA /* ShowPersistencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */; };
 		40A9432125693F320034C307 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 40A9432025693F320034C307 /* Alamofire */; };
 		40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */; };
 		40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA92559C3EE00B05DBD /* ContentView.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStarView.swift; sourceTree = "<group>"; };
+		405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPersistencyService.swift; sourceTree = "<group>"; };
 		40C69FA42559C3EE00B05DBD /* TvTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerApp.swift; sourceTree = "<group>"; };
 		40C69FA92559C3EE00B05DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				84EF05642569AB9700D62C7D /* ShowService.swift */,
 				84EF05622569AB9700D62C7D /* TraktApi.swift */,
 				84FED80C256AAF6A0057C5B4 /* ReleaseDataSource.swift */,
+				405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				84EDF05E2569280000037F00 /* FavoritesView.swift in Sources */,
 				84EF05672569AB9700D62C7D /* ShowService.swift in Sources */,
 				84EF055B2569AB7300D62C7D /* TraktIdModel.swift in Sources */,
+				405B2D06256D9CD200A42BFA /* ShowPersistencyService.swift in Sources */,
 				84EF055C2569AB7300D62C7D /* ShowModel.swift in Sources */,
 				40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */,
 				40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */,
