@@ -38,10 +38,10 @@ class ReleaseDataSource: ObservableObject {
             self.showService.saveAsFavorite(show: show)
             mutableShow.favorite = true
         }else {
+            self.showService.removeFavorite(show: show)
             mutableShow.favorite = false
         }
-        self.shows.remove(at: index)
-        self.shows.insert(mutableShow, at: index)
+        self.shows[index] = mutableShow
     }
     
 
@@ -53,6 +53,7 @@ class ReleaseDataSource: ObservableObject {
         isLoadingPage = true
 
         self.showService.getReleases(pageNr: self.currentPage) { (data) in
+            
             self.shows.append(contentsOf: data)
             self.isLoadingPage = false
             self.currentPage += 1

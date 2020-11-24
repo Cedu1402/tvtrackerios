@@ -13,7 +13,6 @@ class ShowService {
     // core data context.
     let persistenceController = PersistenceController.shared
     
-
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
         
@@ -30,7 +29,7 @@ class ShowService {
             
             for (index, data) in result.enumerated() {
                 shows.append(ShowModel(id: UUID(),
-                                       index: index,
+                                       index: index + (pageNr - 1) * 10,
                                        title: data.show.title,
                                        overview: data.show.overview,
                                        trakt: data.show.ids.trakt,
@@ -85,10 +84,24 @@ class ShowService {
         newFavoriteShow.tvdb = Int64(show.tvdb)
         newFavoriteShow.trakt = Int64(show.trakt)
         newFavoriteShow.imageURL = show.imageURL
-        
         try? managedObjectContext.save()
     }
     
     
-    
+    func removeFavorite(show: ShowModel){
+        let managedObjectContext = self.persistenceController.container.viewContext
+        let fetchRequest: NSFetchRequest<Show> = Show.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "trakt == %d", show.trakt)
+        fetchRequest.sortDescriptors =  [NSSortDescriptor(key: "trakt", ascending: true)]
+        
+        do {
+            let objects = try managedObjectContext.fetch(fetchRequest)
+            for object in objects {
+                managedObjectContext.delete(object)
+            }
+            try managedObjectContext.save()
+        } catch {
+            return
+        }
+    }
 }

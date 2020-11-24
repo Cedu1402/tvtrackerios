@@ -48,6 +48,8 @@ struct ReleaseView: View {
                                         .font(.system(size: 12))
                                 }.padding(.leading, 10)
                             }
+                    }.onAppear {
+                        dataSource.loadMoreContentIfNeeded(currentItem: show)
                     }
                 }
                 if dataSource.isLoadingPage {

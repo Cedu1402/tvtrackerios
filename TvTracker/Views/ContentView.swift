@@ -23,6 +23,7 @@ struct ContentView: View {
                     Image(systemName: "star.fill")
                     Text("Favorites")
                 }
+                .environment(\.managedObjectContext, viewContext)
         }
     }
     
