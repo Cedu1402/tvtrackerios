@@ -38,10 +38,20 @@ class ReleaseDataSource: ObservableObject {
                 s.trakt == show.trakt // test if this is the item you're looking for
             })
             var mutableShow = show
+            self.objectWillChange.send()
             mutableShow.favorite = true
-            self.shows[index!] = mutableShow
+            self.shows.remove(at: index!)
+            self.shows.insert(mutableShow, at: index!)
+            // self.shows.append(mutableShow)
+        }else {
+            let index = self.shows.firstIndex(where: { (s) -> Bool in
+                s.trakt == show.trakt // test if this is the item you're looking for
+            })
+            var mutableShow = show
+            mutableShow.favorite = false
+            self.shows.remove(at: index!)
+            self.shows.insert(mutableShow, at: index!)
         }
-        
     }
     
 

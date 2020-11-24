@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoriteStarView: View {
-    @State var show: ShowModel
+    @Binding var show: ShowModel
     let onFavorite: () -> Void
     
     @State private var showingAlert = false
@@ -19,7 +19,7 @@ struct FavoriteStarView: View {
             self.showingAlert = true
         }) {
             Image(systemName: "star.fill")
-                .foregroundColor(self.show.favorite ?
+                .foregroundColor(show.favorite ?
                                     Color(red: 1, green: 0.85, blue: 0) : Color.gray)
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Favoriten"),
@@ -38,18 +38,26 @@ struct FavoriteStarView: View {
 }
 
 struct FavoriteStarView_Previews: PreviewProvider {
+
     static var previews: some View {
-        FavoriteStarView(show: ShowModel(
-                            id: UUID(),
-                            title: "test show",
-                            overview: "",
-                            trakt: 0,
-                            imdb: "",
-                            tvdb: 0,
-                            imageURL: URL(string: "test.ch")!,
-                            favorite: true)){
-            
+       PreviewWrapper()
+     }
+
+     struct PreviewWrapper: View {
+       @State() var show =  ShowModel(
+        id: UUID(),
+        title: "test show",
+        overview: "",
+        trakt: 0,
+        imdb: "",
+        tvdb: 0,
+        imageURL: URL(string: "test.ch")!,
+        favorite: true)
+
+       var body: some View {
+        FavoriteStarView(show: $show){
         }
-    }
+       }
+     }
 }
 
