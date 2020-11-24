@@ -22,11 +22,12 @@ struct ReleaseView: View {
                 ForEach(dataSource.shows) {
                  show in
                     NavigationLink(
-                        destination: /* HIER RICHTIGE VIEW*/ EmptyView()) {
+                        destination: ShowDetailView(show: $dataSource.shows[show.index])) {
                             HStack {
                                 ListImageView(url: show.imageURL)
                                     .frame(width: 68,
-                                           height: 100)
+                                           height: 100,
+                                           alignment: .topLeading)
                                     .cornerRadius(8)
                                 VStack {
                                     HStack {
@@ -56,7 +57,9 @@ struct ReleaseView: View {
                     ProgressView()
                 }
             }
+            .navigationBarTitle("Releases")
         }
+
     }
 }
 
