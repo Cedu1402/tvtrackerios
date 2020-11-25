@@ -14,7 +14,7 @@ class SeasonServiceTest: XCTestCase {
     func testSeasonServiceApiCall() throws {
         let e = expectation(description: "Season service api request")
         
-        SeasonService().getSeasons(showId: 353){ (data) in
+        SeasonService().getSeasons(showId: 2){ (data) in
             XCTAssertTrue(data.count > 0, "Check if seasons found")
             e.fulfill()
         }

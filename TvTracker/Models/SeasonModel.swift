@@ -8,23 +8,26 @@
 import Foundation
 
 struct SeasonApiModel: Codable {
-    let titel: String
+    let title: String
+    let overview: String
     let episode_count: Int
     let aired_episodes: Int
-    let first_aired: Date
+    let first_aired: String?
     let number: Int
-    let ids: TraktIdModel
+    let ids: SeasonIdModel
 }
 
 
 struct SeasonModel : Identifiable {
     var id: UUID
+    let title: String
+    let overview: String
     let episodeCount: Int
     let airedEpisodes: Int
-    let firstAired: Date
+    let firstAired: String?
     let number: Int
     let trakt: Int
-    let imdb: String
     let tvdb: Int
+    let tmdb: Int
 }
 

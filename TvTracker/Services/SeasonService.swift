@@ -11,7 +11,7 @@ class SeasonService {
     
     
     func getSeasons(showId: Int, completion: @escaping ([SeasonModel]) -> ()) {
-        guard let traktUrl = URL(string: TraktApi.baseUrl + String(showId) + "/seasons?extended=full") else {return }
+        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/" + String(showId) + "/seasons?extended=full") else {return }
         
         var urlRequest = URLRequest(url: traktUrl)
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -28,16 +28,19 @@ class SeasonService {
                 let result = try JSONDecoder().decode([SeasonApiModel].self, from: response!)
                 for data in result {
                     seasons.append(SeasonModel(id: UUID(),
+                                               title: data.title,
+                                               overview: data.overview,
                                                episodeCount: data.episode_count,
                                                airedEpisodes: data.aired_episodes,
                                                firstAired: data.first_aired,
                                                number: data.number,
                                                trakt: data.ids.trakt,
-                                               imdb: data.ids.imdb,
-                                               tvdb: data.ids.tvdb))
+                                               tvdb: data.ids.tvdb,
+                                               tmdb: data.ids.tmdb))
                 }
             }catch{
-            
+                let nserror = error as NSError
+                debugPrint("Unresolved error \(nserror), \(nserror.userInfo)")
             }
             
             DispatchQueue.main.async{
