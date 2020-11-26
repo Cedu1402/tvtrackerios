@@ -11,10 +11,10 @@ import XCTest
 class EpisodeServiceTest: XCTestCase {
 
     func testEpisodeServiceApiCall() throws {
-        let e = expectation(description: "Season service api request")
+        let e = expectation(description: "episode service api request")
         
         EpisodeService().getEpisodes(imdb: "tt0903747", season: 1){ (data) in
-            XCTAssertTrue(data.count > 0, "Check if seasons found")
+            XCTAssertTrue(data.count > 0, "Check if episodes found")
             e.fulfill()
         }
         waitForExpectations(timeout: 5.0, handler: nil)

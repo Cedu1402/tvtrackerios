@@ -14,12 +14,10 @@ class ShowService {
     
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
-        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/trending?extended=full&page=\(pageNr)") else {return }
+        guard let urlRequest = TraktApi.createTraktRequest(url: "shows/trending?extended=full&page=\(pageNr)") else {
+            return
+        }
         
-        var urlRequest = URLRequest(url: traktUrl)
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("2", forHTTPHeaderField: "trakt-api-version")
-        urlRequest.setValue(TraktApi.key, forHTTPHeaderField: "trakt-api-key")
         
         URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
             var shows = [ShowModel]()

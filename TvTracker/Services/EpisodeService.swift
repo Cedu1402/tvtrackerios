@@ -10,12 +10,10 @@ import Foundation
 class EpisodeService {
 
     func getEpisodes(imdb: String, season: Int, completion: @escaping ([EpisodeModel]) -> ()) {
-        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/" + imdb + "/seasons/" + String(season) + "?extended=full") else {return }
         
-        var urlRequest = URLRequest(url: traktUrl)
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("2", forHTTPHeaderField: "trakt-api-version")
-        urlRequest.setValue(TraktApi.key, forHTTPHeaderField: "trakt-api-key")
+        guard let urlRequest = TraktApi.createTraktRequest(url: "shows/" + imdb + "/seasons/" + String(season) + "?extended=full") else {
+            return
+        }
         
         URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
             var episodes = [EpisodeModel]()

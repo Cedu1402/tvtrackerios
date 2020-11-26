@@ -10,6 +10,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ofSeason" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Season" inverseName="episodes" inverseEntity="Season"/>
     </entity>
     <entity name="Season" representedClassName="Season" syncable="YES" codeGenerationType="class">
         <attribute name="airedEpisodes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -19,6 +20,8 @@
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Episode" inverseName="ofSeason" inverseEntity="Episode"/>
+        <relationship name="ofShow" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Show" inverseName="seasons" inverseEntity="Show"/>
     </entity>
     <entity name="Show" representedClassName="Show" syncable="YES" codeGenerationType="class">
         <attribute name="bannerImageURL" optional="YES" attributeType="URI"/>
@@ -28,10 +31,11 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Season" inverseName="ofShow" inverseEntity="Season"/>
     </entity>
     <elements>
-        <element name="Episode" positionX="-54" positionY="63" width="128" height="178"/>
-        <element name="Season" positionX="-63" positionY="27" width="128" height="148"/>
-        <element name="Show" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Episode" positionX="-240.53515625" positionY="93.8671875" width="128" height="28"/>
+        <element name="Season" positionX="-133.3671875" positionY="-142.31640625" width="128" height="28"/>
+        <element name="Show" positionX="-424.25390625" positionY="-117.2578125" width="128" height="28"/>
     </elements>
 </model>

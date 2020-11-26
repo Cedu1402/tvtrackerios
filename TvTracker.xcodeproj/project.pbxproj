@@ -20,7 +20,7 @@
 		40C69FAF2559C3F200B05DBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C69FAE2559C3F200B05DBD /* Preview Assets.xcassets */; };
 		40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FB02559C3F200B05DBD /* Persistence.swift */; };
 		40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FB22559C3F200B05DBD /* TvTracker.xcdatamodeld */; };
-		40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */; };
+		40C69FBF2559C3F300B05DBD /* ShowServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FBE2559C3F300B05DBD /* ShowServiceTest.swift */; };
 		40C69FCA2559C3F300B05DBD /* TvTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */; };
 		40CAFE6A25696E54002890DE /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 40CAFE6925696E54002890DE /* URLImage */; };
 		40CAFE6F2569732D002890DE /* ListImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAFE6E2569732D002890DE /* ListImageView.swift */; };
@@ -71,7 +71,7 @@
 		40C69FB32559C3F200B05DBD /* TvTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TvTracker.xcdatamodel; sourceTree = "<group>"; };
 		40C69FB52559C3F200B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C69FBA2559C3F300B05DBD /* TvTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerTests.swift; sourceTree = "<group>"; };
+		40C69FBE2559C3F300B05DBD /* ShowServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowServiceTest.swift; sourceTree = "<group>"; };
 		40C69FC02559C3F300B05DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40C69FC52559C3F300B05DBD /* TvTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FC92559C3F300B05DBD /* TvTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerUITests.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		40C69FBD2559C3F300B05DBD /* TvTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */,
+				40C69FBE2559C3F300B05DBD /* ShowServiceTest.swift */,
 				40C69FC02559C3F300B05DBD /* Info.plist */,
 				405B2D17256DB52400A42BFA /* SeasonServiceTest.swift */,
 				404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */,
@@ -388,7 +388,7 @@
 			files = (
 				405B2D18256DB52400A42BFA /* SeasonServiceTest.swift in Sources */,
 				404AA2CB2570308B00D1036F /* EpisodeServiceTest.swift in Sources */,
-				40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */,
+				40C69FBF2559C3F300B05DBD /* ShowServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
