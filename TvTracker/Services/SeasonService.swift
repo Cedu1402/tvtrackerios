@@ -7,11 +7,9 @@
 
 import Foundation
 class SeasonService {
-    
-    
-    
-    func getSeasons(showId: Int, completion: @escaping ([SeasonModel]) -> ()) {
-        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/" + String(showId) + "/seasons?extended=full") else {return }
+
+    func getSeasons(imdb: String, completion: @escaping ([SeasonModel]) -> ()) {
+        guard let traktUrl = URL(string: TraktApi.baseUrl + "shows/" + imdb + "/seasons?extended=full") else {return }
         
         var urlRequest = URLRequest(url: traktUrl)
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
