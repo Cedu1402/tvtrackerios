@@ -10,15 +10,7 @@ import XCTest
 
 class SeasonPersistencySerivceTest: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
+    func test_saveSeasonOfShow_createsRelationToShow() throws {
         // Arrange
         let context = PersistenceController.preview.container.viewContext
         let show = Show(context: context)
@@ -30,11 +22,16 @@ class SeasonPersistencySerivceTest: XCTestCase {
         
         // Assert
         XCTAssertNotNil(show.seasons)
-        XCTAssertTrue(show.seasons?.count == 1)
-        let nameTest = show.seasons?.contains(where: { (season) -> Bool in
-            return (season as! Season).title == MockSeasonService.name
+        XCTAssertTrue(show.seasons?.count == 2)
+        let nameTest1 = show.seasons?.contains(where: { (season) -> Bool in
+            return (season as! Season).title == MockSeasonService.name1
         })
-        XCTAssertTrue(nameTest!)
+        XCTAssertTrue(nameTest1!)
+        
+        let nameTest2 = show.seasons?.contains(where: { (season) -> Bool in
+            return (season as! Season).title == MockSeasonService.name2
+        })
+        XCTAssertTrue(nameTest2!)
     }
 
 }

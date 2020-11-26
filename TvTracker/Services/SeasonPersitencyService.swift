@@ -44,8 +44,10 @@ class SeasonPersistencyService {
             } catch {
                 print(error)
             }
-            
         }
     }
+    
+    
+    
     
 }
