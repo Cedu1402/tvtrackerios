@@ -10,8 +10,14 @@ import CoreData
 
 class SeasonPersistencyService {
     
-    let context = PersistenceController.shared.container.viewContext
-    let seasonService = SeasonService()
+    private let context: NSManagedObjectContext
+    private let seasonService: SeasonServiceProtocol
+    
+    init(persistency: PersistenceController, seasonService: SeasonServiceProtocol) {
+        context = persistency.container.viewContext
+        self.seasonService = seasonService
+    }
+    
     
     public func saveSeasonOfShow(show: Show){
         self.seasonService.getSeasons(imdb: show.imdb ?? "") { (seasons) in

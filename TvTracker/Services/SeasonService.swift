@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class SeasonService {
+
+class SeasonService: SeasonServiceProtocol {
 
     func getSeasons(imdb: String, completion: @escaping ([SeasonModel]) -> ()) {
         

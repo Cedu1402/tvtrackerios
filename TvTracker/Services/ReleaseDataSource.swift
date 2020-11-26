@@ -8,13 +8,14 @@
 import Foundation
 
 class ReleaseDataSource: ObservableObject {
+    
     @Published var shows = [ShowModel]()
     @Published var isLoadingPage = false
     
     private var currentPage = 1
     private var canLoadMorePages = true
     private let showService = ShowService()
-    private let showPersitencyService = ShowPersistencyService()
+    private let showPersitencyService = ShowPersistencyService(persistency: PersistenceController.shared)
     
     init() {
         loadMoreContent()

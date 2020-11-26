@@ -10,8 +10,12 @@ import CoreData
 
 class ShowPersistencyService {
     
-    let persistenceController = PersistenceController.shared
+    private let context: NSManagedObjectContext
     
+    init(persistency: PersistenceController){
+        context = persistency.container.viewContext
+    }
+
     func isFavorite(data: ShowApiModel) -> Bool {
         let query: NSFetchRequest<Show> = Show.fetchRequest()
         let filter = NSPredicate(format: "trakt == %d", data.show.ids.trakt)
@@ -20,7 +24,7 @@ class ShowPersistencyService {
         query.sortDescriptors = [sort]
         
         do{
-            let result = try self.persistenceController.container.viewContext.count(for: query)
+            let result = try self.context.count(for: query)
             return result > 0
         }catch{
             return false
@@ -28,8 +32,7 @@ class ShowPersistencyService {
     }
     
     func saveAsFavorite(show: ShowModel){
-        let managedObjectContext = self.persistenceController.container.viewContext
-        let newFavoriteShow = Show(context: managedObjectContext)
+        let newFavoriteShow = Show(context: self.context)
         newFavoriteShow.title = show.title
         newFavoriteShow.overview = show.overview
         newFavoriteShow.imdb = show.imdb
@@ -37,22 +40,21 @@ class ShowPersistencyService {
         newFavoriteShow.trakt = Int64(show.trakt)
         let localImage = self.saveImageToFileSystem(image: show.imageURL)
         newFavoriteShow.imageURL = localImage
-        try? managedObjectContext.save()
+        try? self.context.save()
     }
     
     
     func removeFavorite(show: ShowModel){
-        let managedObjectContext = self.persistenceController.container.viewContext
         let fetchRequest: NSFetchRequest<Show> = Show.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "trakt == %d", show.trakt)
         fetchRequest.sortDescriptors =  [NSSortDescriptor(key: "trakt", ascending: true)]
         
         do {
-            let objects = try managedObjectContext.fetch(fetchRequest)
+            let objects = try self.context.fetch(fetchRequest)
             for object in objects {
-                managedObjectContext.delete(object)
+                self.context.delete(object)
             }
-            try managedObjectContext.save()
+            try self.context.save()
         } catch {
             return
         }

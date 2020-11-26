@@ -10,14 +10,13 @@ import CoreData
 
 class ShowService {
     
-    private let showPersitencyService = ShowPersistencyService()
+    private let showPersitencyService = ShowPersistencyService(persistency: PersistenceController.shared)
     
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
         guard let urlRequest = TraktApi.createTraktRequest(url: "shows/trending?extended=full&page=\(pageNr)") else {
             return
         }
-        
         
         URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
             var shows = [ShowModel]()
