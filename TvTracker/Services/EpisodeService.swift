@@ -28,7 +28,7 @@ class EpisodeService {
                                                  number: data.number,
                                                  title: data.title,
                                                  overview: data.overview,
-                                                 firstAired: data.first_aired,
+                                                 firstAired: TraktApi.convertToDate(date: data.first_aired),
                                                  runtime: data.runtime,
                                                  trakt: data.ids.trakt,
                                                  imdb: data.ids.imdb,

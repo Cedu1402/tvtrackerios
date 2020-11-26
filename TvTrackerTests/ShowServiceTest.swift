@@ -10,7 +10,7 @@ import XCTest
 
 class ShowServiceTest: XCTestCase {
     
-    func testShowServiceApiCall() throws {
+    func test_getReleases_valid_returnsShows() throws {
         
         let e = expectation(description: "Show service api request")
         

@@ -24,7 +24,7 @@ struct SeasonModel : Identifiable {
     let overview: String
     let episodeCount: Int
     let airedEpisodes: Int
-    let firstAired: String?
+    let firstAired: Date
     let number: Int
     let trakt: Int
     let tvdb: Int

@@ -28,7 +28,7 @@ class SeasonService {
                                                overview: data.overview,
                                                episodeCount: data.episode_count,
                                                airedEpisodes: data.aired_episodes,
-                                               firstAired: data.first_aired,
+                                               firstAired: TraktApi.convertToDate(date: data.first_aired),
                                                number: data.number,
                                                trakt: data.ids.trakt,
                                                tvdb: data.ids.tvdb,

@@ -22,7 +22,7 @@ struct EpisodeModel {
     let number: Int
     let title: String
     let overview: String
-    let firstAired: String?
+    let firstAired: Date
     let runtime: Int
     let trakt: Int
     let imdb: String

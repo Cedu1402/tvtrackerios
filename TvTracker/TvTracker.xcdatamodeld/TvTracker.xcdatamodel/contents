@@ -16,8 +16,9 @@
         <attribute name="airedEpisodes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="episodeCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firstAired" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="imdb" optional="YES" attributeType="String"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="trakt" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="tvdb" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Episode" inverseName="ofSeason" inverseEntity="Episode"/>
@@ -35,7 +36,7 @@
     </entity>
     <elements>
         <element name="Episode" positionX="-240.53515625" positionY="93.8671875" width="128" height="28"/>
-        <element name="Season" positionX="-133.3671875" positionY="-142.31640625" width="128" height="28"/>
+        <element name="Season" positionX="-133.3671875" positionY="-142.31640625" width="128" height="193"/>
         <element name="Show" positionX="-424.25390625" positionY="-117.2578125" width="128" height="28"/>
     </elements>
 </model>

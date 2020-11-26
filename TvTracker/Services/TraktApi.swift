@@ -26,6 +26,19 @@ struct TraktApi {
         
         return urlRequest
     }
+    
+    
+    static func convertToDate(date: String?) -> Date {
+        guard let dateStr = date else {
+            return Date()
+        }
+        let formatter = DateFormatter()
+        // Trakt api returns dates in utc. 
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return formatter.date(from: dateStr) ?? Date()
+
+    }
 }
 
 
