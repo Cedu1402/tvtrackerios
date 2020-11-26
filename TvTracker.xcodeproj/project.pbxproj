@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		404AA2CB2570308B00D1036F /* EpisodeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */; };
 		4057AE4D256B1F140099EE8D /* FavoriteStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */; };
 		405B2D06256D9CD200A42BFA /* ShowPersistencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */; };
 		405B2D13256DB38B00A42BFA /* SeasonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2D12256DB38B00A42BFA /* SeasonService.swift */; };
 		405B2D18256DB52400A42BFA /* SeasonServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2D17256DB52400A42BFA /* SeasonServiceTest.swift */; };
+		405B2D1D25702CD100A42BFA /* EpisodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B2D1C25702CD000A42BFA /* EpisodeService.swift */; };
 		40A9432125693F320034C307 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 40A9432025693F320034C307 /* Alamofire */; };
 		40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */; };
 		40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C69FA92559C3EE00B05DBD /* ContentView.swift */; };
@@ -54,10 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeServiceTest.swift; sourceTree = "<group>"; };
 		4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStarView.swift; sourceTree = "<group>"; };
 		405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPersistencyService.swift; sourceTree = "<group>"; };
 		405B2D12256DB38B00A42BFA /* SeasonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonService.swift; sourceTree = "<group>"; };
 		405B2D17256DB52400A42BFA /* SeasonServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonServiceTest.swift; sourceTree = "<group>"; };
+		405B2D1C25702CD000A42BFA /* EpisodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeService.swift; sourceTree = "<group>"; };
 		40C69FA42559C3EE00B05DBD /* TvTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C69FA72559C3EE00B05DBD /* TvTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTrackerApp.swift; sourceTree = "<group>"; };
 		40C69FA92559C3EE00B05DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				40C69FBE2559C3F300B05DBD /* TvTrackerTests.swift */,
 				40C69FC02559C3F300B05DBD /* Info.plist */,
 				405B2D17256DB52400A42BFA /* SeasonServiceTest.swift */,
+				404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */,
 			);
 			path = TvTrackerTests;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				84FED80C256AAF6A0057C5B4 /* ReleaseDataSource.swift */,
 				405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */,
 				405B2D12256DB38B00A42BFA /* SeasonService.swift */,
+				405B2D1C25702CD000A42BFA /* EpisodeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */,
 				84EF05652569AB9700D62C7D /* TraktApi.swift in Sources */,
 				84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */,
+				405B2D1D25702CD100A42BFA /* EpisodeService.swift in Sources */,
 				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
 				84EF05662569AB9700D62C7D /* ImageLoader.swift in Sources */,
 				84EF055D2569AB7300D62C7D /* EpisodeModel.swift in Sources */,
@@ -380,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405B2D18256DB52400A42BFA /* SeasonServiceTest.swift in Sources */,
+				404AA2CB2570308B00D1036F /* EpisodeServiceTest.swift in Sources */,
 				40C69FBF2559C3F300B05DBD /* TvTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct EpisodeApiModel {
+struct EpisodeApiModel: Codable {
     let season: Int
     let number: Int
     let title: String
     let overview: String
-    let first_aired: Date
+    let first_aired: String?
     let runtime: Int
-    let ids: TraktIdModel
+    let ids: EpisodeIdModel
 }
 
 struct EpisodeModel {
@@ -22,7 +22,7 @@ struct EpisodeModel {
     let number: Int
     let title: String
     let overview: String
-    let firstAired: Date
+    let firstAired: String?
     let runtime: Int
     let trakt: Int
     let imdb: String
