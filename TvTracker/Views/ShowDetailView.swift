@@ -13,15 +13,23 @@ struct ShowDetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ListImageView(url: show.imageURL)
-                .edgesIgnoringSafeArea(.top)
-                .frame(maxWidth: .infinity, maxHeight: 100)
-            
-            Text(show.overview)
-            
-        }
-        
+        ScrollView {
+            GeometryReader { geometry in
+                ListImageView(url: show.imageURL)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width,
+                           height: geometry.size.height)
+                    .offset(y: geometry.frame(in: .global).minY/9)
+                    .clipped()
+            }.frame(height: 400)
+            VStack(alignment: .leading) {
+                Text(show.title).font(.title)
+                    .bold()
+                Text(show.overview)
+                    .padding(.top, 10)
+                
+            }.frame(width: 300)
+        }.edgesIgnoringSafeArea(.top)
     }
 }
 
@@ -35,7 +43,7 @@ struct ShowDetailView_Previews: PreviewProvider {
          id: UUID(),
          index: 1,
          title: "test show",
-         overview: "",
+         overview: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
          trakt: 0,
          imdb: "",
          tvdb: 0,

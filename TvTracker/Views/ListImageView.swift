@@ -40,8 +40,6 @@ struct ListImageView: View {
                                 .clipShape(Rectangle())
                          })
     }
-    
-    
 }
 
 
