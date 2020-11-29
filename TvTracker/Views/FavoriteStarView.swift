@@ -74,6 +74,7 @@ struct FavoriteStarView_Previews: PreviewProvider {
         trakt: 0,
         imdb: "",
         tvdb: 0,
+        tmdb: 0,
         imageURL: URL(string: "test.ch")!,
         favorite: true)
 

@@ -11,6 +11,7 @@ struct TraktIdModel: Codable {
     let trakt: Int
     let imdb: String
     let tvdb: Int
+    let tmdb: Int
 }
 
 struct SeasonIdModel: Codable {

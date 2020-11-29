@@ -25,7 +25,8 @@ struct ShowModel : Identifiable {
     let trakt: Int
     let imdb: String
     let tvdb: Int
-    let imageURL: URL
+    let tmdb: Int
+    var imageURL: URL
     var favorite: Bool
 }
 

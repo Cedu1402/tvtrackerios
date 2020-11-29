@@ -21,5 +21,16 @@ class ShowServiceTest: XCTestCase {
         
         waitForExpectations(timeout: 5.0, handler: nil)
     }
+    
+    func test_GetImageUrl() throws {
+        // 113956
+        let e = expectation(description: "Season service api request")
+        
+        ShowService().getImageUrl(tmdb: 113956) { url in
+            XCTAssertTrue(url.count > 0, "Check if shows found")
+            e.fulfill()
+        }
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
 
 }

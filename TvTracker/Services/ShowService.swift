@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CoreData
+import Alamofire
 
 class ShowService {
     
@@ -14,18 +14,25 @@ class ShowService {
     
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
-        guard let urlRequest = TraktApi.createTraktRequest(url: "shows/trending?extended=full&page=\(pageNr)") else {
+        /*guard let urlRequest = TraktApi.createTraktRequest(url: "shows/trending?extended=full&page=\(pageNr)") else {
             return
-        }
+        }*/
+    
+        let headers: HTTPHeaders = [
+            "trakt-api-version": "2",
+            "Content-Type": "application/json",
+            "trakt-api-key": TraktApi.key
+        ]
         
-        URLSession.shared.dataTask(with: urlRequest) { (response, _, _) in
+        AF.request(TraktApi.baseUrl + "shows/trending?extended=full&page=\(pageNr)", headers: headers).responseData { response in
+            
             var shows = [ShowModel]()
-            if(response == nil){
+            if(response.data == nil){
                 return
             }
             
             do {
-                let result = try JSONDecoder().decode([ShowApiModel].self, from: response!)
+                let result = try JSONDecoder().decode([ShowApiModel].self, from: response.data!)
                 for (index, data) in result.enumerated() {
                     shows.append(ShowModel(id: UUID(),
                                            index: index + (pageNr - 1) * 10,
@@ -34,31 +41,65 @@ class ShowService {
                                            trakt: data.show.ids.trakt,
                                            imdb: data.show.ids.imdb,
                                            tvdb: data.show.ids.tvdb,
+                                           tmdb: data.show.ids.tmdb,
                                            imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!,
                                            favorite: self.showPersitencyService.isFavorite(data: data)))
                 }
+                
+                self.getImagesOfShow(shows: shows) { showsWithImages in
+                    completion(showsWithImages)
+                }
             }catch{
-            
-            }
-            
-            DispatchQueue.main.async{
-                completion(shows)
+                return
             }
         }
-        .resume()
+        
     }
     
-    func getImageUrl(completion: @escaping ([ShowApiModel]) -> ()) {
-        guard let url = URL(string: "Test.ch") else {return }
+    func getImagesOfShow(shows: [ShowModel], completion: @escaping ([ShowModel]) -> ()) {
+        var changed = [ShowModel]()
+        let dispatchGroup = DispatchGroup()
+        // change the quality of service based on your needs
+        let queue = DispatchQueue(label: "com.stackoverflow", qos: .background)
         
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let urls = try! JSONDecoder().decode([ShowApiModel].self, from: data!)
-            
-            DispatchQueue.main.async{
-                completion(urls)
+        
+        for show in shows{
+            dispatchGroup.enter()
+            queue.async {
+                self.getImageUrl(tmdb: show.tmdb) { url in
+                    dispatchGroup.leave()
+                    var updatedShow = show
+                    updatedShow.imageURL = URL(string: url)!
+                    changed.append(updatedShow)
+                }
             }
         }
-        .resume()
+        
+        dispatchGroup.notify(queue: .main, execute: {
+            completion(changed)
+        })
+    }
+    
+    func getImageUrl(tmdb: Int, completion: @escaping (String) -> ()) {
+        let key = "71924cf7c3c58c0d8576553cbb9f2132"
+        let url = "https://api.themoviedb.org/3/tv/\(tmdb)/images?api_key=\(key)"
+        let baseImageUrl = "http://image.tmdb.org/t/p/w500"
+        
+        AF.request(url).responseData { response in
+            if(response.data == nil){
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(TMDBImages.self, from: response.data!)
+                if result.posters.count > 0 {
+                    completion(baseImageUrl + result.posters[0].file_path)
+                }
+                
+            }catch{
+                
+            }
+        }
     }
     
 }

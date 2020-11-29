@@ -47,6 +47,7 @@ struct ShowDetailView_Previews: PreviewProvider {
          trakt: 0,
          imdb: "",
          tvdb: 0,
+            tmdb: 0,
          imageURL: URL(string: "https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg")!,
          favorite: true)
 
