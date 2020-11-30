@@ -23,7 +23,6 @@ struct ContentView: View {
                     Image(systemName: "star.fill")
                     Text("Favorites")
                 }
-                .environment(\.managedObjectContext, viewContext)
             AboutView()
                 .tabItem  {
                     Image(systemName: "info.circle")
@@ -37,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }

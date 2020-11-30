@@ -16,9 +16,9 @@ class ShowPersistencyService {
         context = persistency.container.viewContext
     }
 
-    func isFavorite(data: ShowApiModel) -> Bool {
+    func isFavorite(trakt: Int) -> Bool {
         let query: NSFetchRequest<Show> = Show.fetchRequest()
-        let filter = NSPredicate(format: "trakt == %d", data.show.ids.trakt)
+        let filter = NSPredicate(format: "trakt == %d", trakt)
         let sort = NSSortDescriptor(key: "trakt", ascending: true)
         query.predicate = filter
         query.sortDescriptors = [sort]
@@ -28,6 +28,18 @@ class ShowPersistencyService {
             return result > 0
         }catch{
             return false
+        }
+    }
+    
+    func getFavorites() -> [Show] {
+        let query: NSFetchRequest<Show> = Show.fetchRequest()
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        query.sortDescriptors = [sort]
+        
+        do{
+            return try self.context.fetch(query)
+        }catch{
+            return [Show]()
         }
     }
     

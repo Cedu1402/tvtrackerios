@@ -34,7 +34,7 @@ class ShowService {
                                            tvdb: data.show.ids.tvdb,
                                            tmdb: data.show.ids.tmdb,
                                            imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb)-1.jpg")!,
-                                           favorite: self.showPersitencyService.isFavorite(data: data)))
+                                           favorite: self.showPersitencyService.isFavorite(trakt: data.show.ids.trakt)))
                 }
                 
                 self.getImagesOfShow(shows: shows) { showsWithImages in

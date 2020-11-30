@@ -9,31 +9,13 @@ import SwiftUI
 import URLImage
 
 struct ReleaseView: View {
-    
-    @State var searchText = ""
-    @State private var showingAlert = false
-    @StateObject var dataSource = ReleaseDataSource()
-    let showService = ShowService()
-    
+    let dataSource = ShowDataSource(favorite: false)
     var body: some View {
-        NavigationView {
-            List {
-                SearchBar(text: $searchText)
-                ForEach(dataSource.shows) {
-                 show in
-                    NavigationLink(
-                        destination: ShowDetailView(show: $dataSource.shows[show.index])) {
-                        ReleaseRowView(dataSource: dataSource, index: show.index)
-                    }.onAppear {
-                        dataSource.loadMoreContentIfNeeded(currentItem: show)
-                    }
-                }
-                if dataSource.isLoadingPage {
-                    ProgressView()
-                }
-            }.navigationBarTitle("Releases")
-        }
-
+        ShowListView(title: "Releases")
+            .onAppear{
+                self.dataSource.updateFavoriteFlags()
+            }
+            .environmentObject(dataSource)
     }
 }
 

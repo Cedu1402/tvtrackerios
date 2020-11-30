@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct FavoriteStarView: View {
-    @Binding var show: ShowModel
+    var show: ShowModel
     let onFavorite: () -> Void
     @State private var showingAlert = false
+    @EnvironmentObject var dataSource: ShowDataSource
     
     var body: some View {
         Button(action: {
             self.showingAlert = true
         }) {
-            if(show.favorite) {
+            if(dataSource.shows.count > show.index && dataSource.shows[show.index].favorite) {
                 Image(systemName: "star.fill")
                     .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
             }
@@ -87,7 +88,7 @@ struct FavoriteStarView_Previews: PreviewProvider {
         favorite: true)
 
        var body: some View {
-        FavoriteStarView(show: $show){
+        FavoriteStarView(show: show){
         }
        }
      }
