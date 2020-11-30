@@ -16,8 +16,16 @@ struct FavoriteStarView: View {
         Button(action: {
             self.showingAlert = true
         }) {
-            Image(systemName: "star.fill")
-                .foregroundColor(show.favorite ? Color(red: 1, green: 0.85, blue: 0) : Color.gray)
+            if(show.favorite) {
+                Image(systemName: "star.fill")
+                    .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
+            }
+            else
+            {
+                Image(systemName: "star")
+                    .foregroundColor(Color.gray)
+            }
+            
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Favoriten"),
                   message: Text(self.show.favorite ?

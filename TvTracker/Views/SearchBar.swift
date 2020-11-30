@@ -50,11 +50,9 @@ struct SearchBar: View {
                     self.text = ""
                     //search Show api call with text
                 }) {
-                    Text("Search").bold()
+                    Text("Cancel").bold()
                 }
                 .padding(.trailing, 12)
-                .transition(.move(edge: .trailing))
-                .animation(.easeInOut)
             }
         }
     }
