@@ -46,7 +46,6 @@ struct SearchBarModifier: ViewModifier {
 }
 
 extension View {
-    
     func add(_ searchBar: SearchBar) -> some View {
         return self.modifier(SearchBarModifier(searchBar: searchBar))
     }

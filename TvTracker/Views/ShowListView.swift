@@ -30,10 +30,12 @@ struct ShowListView: View {
                     ProgressView()
                 }
             }.add(self.searchBar)
+            .onReceive(self.searchBar.$text, perform: {_ in
+                
+            })
             .navigationBarTitle(self.title)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
-    
 }
 
 struct ShowListView_Previews: PreviewProvider {

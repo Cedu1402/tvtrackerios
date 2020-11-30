@@ -92,4 +92,10 @@ class ShowService {
         }
     }
     
+    func searchShow(query: String, completion: @escaping ([ShowModel]) -> ()) {
+        AF.request(TraktApi.baseUrl + "show?query=\(query)&fields=title", headers: TraktApi.getHeaders()).responseData { response in
+            
+        }
+    }
+    
 }
