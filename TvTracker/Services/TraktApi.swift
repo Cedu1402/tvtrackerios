@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Alamofire
 
 struct TraktApi {
      static let key = "c01bdbd9fcf60d1977707d76e78d76dfd72472e1267070b7451dabe557759685"
@@ -38,6 +38,15 @@ struct TraktApi {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.date(from: dateStr) ?? Date()
 
+    }
+    
+    static func getHeaders() -> HTTPHeaders {
+        let headers: HTTPHeaders = [
+            "trakt-api-version": "2",
+            "Content-Type": "application/json",
+            "trakt-api-key": TraktApi.key
+        ]
+        return headers
     }
 }
 

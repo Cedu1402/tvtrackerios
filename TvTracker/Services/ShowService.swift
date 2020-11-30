@@ -14,17 +14,8 @@ class ShowService {
     
     func getReleases(pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
-        /*guard let urlRequest = TraktApi.createTraktRequest(url: "shows/trending?extended=full&page=\(pageNr)") else {
-            return
-        }*/
-    
-        let headers: HTTPHeaders = [
-            "trakt-api-version": "2",
-            "Content-Type": "application/json",
-            "trakt-api-key": TraktApi.key
-        ]
-        
-        AF.request(TraktApi.baseUrl + "shows/trending?extended=full&page=\(pageNr)", headers: headers).responseData { response in
+        AF.request(TraktApi.baseUrl + "shows/trending?extended=full&page=\(pageNr)",
+                   headers: TraktApi.getHeaders()).responseData { response in
             
             var shows = [ShowModel]()
             if(response.data == nil){
@@ -61,7 +52,6 @@ class ShowService {
         let dispatchGroup = DispatchGroup()
         // change the quality of service based on your needs
         let queue = DispatchQueue(label: "com.stackoverflow", qos: .background)
-        
         
         for show in shows{
             dispatchGroup.enter()
