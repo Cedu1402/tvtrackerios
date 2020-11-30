@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ShowDetailView: View {
     @Binding var show: ShowModel
-    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    @StateObject var dataSource = SeasonDataSource()
     
     var body: some View {
         ScrollView {
@@ -19,7 +20,7 @@ struct ShowDetailView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width,
                            height: geometry.size.height)
-                    .offset(y: geometry.frame(in: .global).minY/9)
+                    .offset(y: geometry.frame(in: .global).minY / 9)
                     .clipped()
             }.frame(height: 400)
             VStack(alignment: .leading) {
@@ -28,8 +29,36 @@ struct ShowDetailView: View {
                 Text(show.overview)
                     .padding(.top, 10)
                 
-            }.frame(width: 300)
-        }.edgesIgnoringSafeArea(.top)
+                LazyVStack {
+                    if(dataSource.seasons.count > 0) {
+                        Text("Seasons")
+                            .font(.subheadline)
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.vertical, 10)
+                    }
+                    ForEach(dataSource.seasons) {
+                     season in
+                        NavigationLink(
+                            destination: EmptyView()){
+                            Text(season.title).frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        Divider()
+                    }
+                    if dataSource.isLoadingPage {
+                        ProgressView()
+                    }
+                }
+                
+                
+            }
+            .padding(.horizontal, 10)
+        }
+        .onAppear {
+            dataSource.loadContent(imdb: show.imdb)
+        }
+        .navigationBarTitle(Text(show.title), displayMode: .inline)
+    
     }
 }
 

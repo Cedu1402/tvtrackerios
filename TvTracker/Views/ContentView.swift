@@ -24,6 +24,11 @@ struct ContentView: View {
                     Text("Favorites")
                 }
                 .environment(\.managedObjectContext, viewContext)
+            AboutView()
+                .tabItem  {
+                    Image(systemName: "info.circle")
+                    Text("About")
+                }
         }
     }
     
