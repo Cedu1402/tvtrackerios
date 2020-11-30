@@ -11,11 +11,11 @@ struct ShowListView: View {
     var title: String
     @EnvironmentObject var dataSource: ShowDataSource
     @State var searchText = ""
+    @ObservedObject var searchBar: SearchBar = SearchBar()
     
     var body: some View {
         NavigationView {
             List {
-                SearchBar(text: $searchText)
                 ForEach(dataSource.shows) {
                  show in
                     NavigationLink(
@@ -29,8 +29,9 @@ struct ShowListView: View {
                 if dataSource.isLoadingPage {
                     ProgressView()
                 }
-            }.navigationBarTitle(self.title)
-        }
+            }.add(self.searchBar)
+            .navigationBarTitle(self.title)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
 }

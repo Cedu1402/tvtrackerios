@@ -5,7 +5,7 @@
 //  Created by Pasquale De Simone on 21.11.20.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct SearchBar: View {
     
@@ -63,3 +63,4 @@ struct SearchBar_Previews: PreviewProvider {
         SearchBar(text: .constant(""))
     }
 }
+*/

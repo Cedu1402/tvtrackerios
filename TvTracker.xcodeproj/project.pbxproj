@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40106C162575A5BD008A0605 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40106C152575A5BD008A0605 /* SearchBarView.swift */; };
+		40106C1B2575A5DD008A0605 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */; };
 		404AA2CB2570308B00D1036F /* EpisodeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */; };
 		404AA2D32570384500D1036F /* SeasonPersitencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2D22570384500D1036F /* SeasonPersitencyService.swift */; };
 		404AA2D82570486F00D1036F /* ConvertToDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2D72570486F00D1036F /* ConvertToDateTest.swift */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40106C152575A5BD008A0605 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeServiceTest.swift; sourceTree = "<group>"; };
 		404AA2D22570384500D1036F /* SeasonPersitencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonPersitencyService.swift; sourceTree = "<group>"; };
 		404AA2D72570486F00D1036F /* ConvertToDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDateTest.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				84CA63F325754687009BF76B /* AboutView.swift */,
 				8419921325757A0B00B0AD3B /* SeasonDetailView.swift */,
 				40E7B495257585F500B04A73 /* ShowListView.swift */,
+				40106C152575A5BD008A0605 /* SearchBarView.swift */,
+				40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				40C69FB42559C3F200B05DBD /* TvTracker.xcdatamodeld in Sources */,
 				84EF05652569AB9700D62C7D /* TraktApi.swift in Sources */,
 				405D4BE7257058ED008C6F9E /* SeasonServiceProtocol.swift in Sources */,
+				40106C1B2575A5DD008A0605 /* ViewControllerResolver.swift in Sources */,
 				84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */,
 				405B2D1D25702CD100A42BFA /* EpisodeService.swift in Sources */,
 				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
@@ -417,6 +424,7 @@
 				84EF055D2569AB7300D62C7D /* EpisodeModel.swift in Sources */,
 				8419921425757A0B00B0AD3B /* SeasonDetailView.swift in Sources */,
 				405D4C022574E413008C6F9E /* ShowRowView.swift in Sources */,
+				40106C162575A5BD008A0605 /* SearchBarView.swift in Sources */,
 				84FB19AA256D327B004692BC /* ShowDetailView.swift in Sources */,
 				84EDF05E2569280000037F00 /* FavoritesView.swift in Sources */,
 				405D4BF8257454A2008C6F9E /* TMDBImageModel.swift in Sources */,
