@@ -23,32 +23,7 @@ struct ReleaseView: View {
                  show in
                     NavigationLink(
                         destination: ShowDetailView(show: $dataSource.shows[show.index])) {
-                            HStack {
-                                ListImageView(url: show.imageURL)
-                                    .frame(width: 68,
-                                           height: 100,
-                                           alignment: .topLeading)
-                                    .cornerRadius(8)
-                                VStack {
-                                    HStack {
-                                        Text(show.title)
-                                            .frame(maxWidth: .infinity,
-                                                   alignment: .leading)
-                                            .font(.system(size: 18))
-                                        FavoriteStarView(show: $dataSource.shows[show.index]){
-                                            dataSource.changeFavoriteFlag(index: show.index)
-                                        }.padding(.trailing, 10)
-                                    }.padding(.bottom, 10)
-                                    Text(show.overview)
-                                        .frame(minWidth: 0,
-                                               maxWidth: .infinity,
-                                               minHeight: 0,
-                                               maxHeight: 80,
-                                               alignment: .topLeading)
-                                        .truncationMode(.tail)
-                                        .font(.system(size: 12))
-                                }.padding(.leading, 10)
-                            }
+                        ReleaseRowView(dataSource: dataSource, index: show.index)
                     }.onAppear {
                         dataSource.loadMoreContentIfNeeded(currentItem: show)
                     }
@@ -56,14 +31,13 @@ struct ReleaseView: View {
                 if dataSource.isLoadingPage {
                     ProgressView()
                 }
-            }
-            .navigationBarTitle("Releases")
+            }.navigationBarTitle("Releases")
         }
 
     }
 }
 
-struct SeriesView_Previews: PreviewProvider {
+struct ReleaseView_Previews: PreviewProvider {
     static var previews: some View {
         ReleaseView()
     }
