@@ -97,13 +97,13 @@ class ShowService {
         }
     }
     
-    func searchShow(query: String, completion: @escaping ([ShowModel]) -> ()) {
-        
+    func searchShow(query: String, pageNr: Int, completion: @escaping ([ShowModel]) -> ()) {
         
         AF.request(TraktApi.baseUrl + "search/show", method: .get,
                    parameters: ["query": query,
                                 "fields": "title",
-                                "extended": "full"],
+                                "extended": "full",
+                                "page": pageNr],
                    headers: TraktApi.getHeaders())
             .responseData { response in
             
@@ -116,7 +116,7 @@ class ShowService {
                 let result = try JSONDecoder().decode([SearchModel].self, from: response.data!)
                 for (index, data) in result.enumerated() {
                     shows.append(ShowModel(id: UUID(),
-                                           index: index,
+                                           index: index + (pageNr - 1) * 10,
                                            title: data.show.title,
                                            overview: data.show.overview ?? "",
                                            trakt: data.show.ids.trakt,

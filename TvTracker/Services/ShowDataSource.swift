@@ -86,10 +86,35 @@ class ShowDataSource: ObservableObject {
     }
     
     
-    func searchShows(query: String){
-        self.showService.searchShow(query: query) { (shows) in
+    func searchShows(query: String, initialize: Bool){
+        if initialize {
+            self.currentPage = 1
+            self.canLoadMorePages = true
             self.shows.removeAll()
+        }
+        
+        isLoadingPage = true
+        
+        self.showService.searchShow(query: query, pageNr: self.currentPage) { (shows) in
+            
             self.shows.append(contentsOf: shows)
+            self.isLoadingPage = false
+            self.currentPage += 1
+            
+            if shows.count < 10 {
+                self.canLoadMorePages = false
+            }
+        }
+    }
+    
+    func searchMoreShows(show: ShowModel, query: String){
+        guard (!isLoadingPage && canLoadMorePages) || self.favoriteView else {
+          return
+        }
+        
+        let thresholdIndex = shows.index(shows.endIndex, offsetBy: -5)
+        if shows.firstIndex(where: { $0.id == show.id }) == thresholdIndex {
+            searchShows(query: query, initialize: false)
         }
     }
     
@@ -99,6 +124,7 @@ class ShowDataSource: ObservableObject {
         }else {
             self.shows.removeAll()
             self.currentPage = 1
+            self.canLoadMorePages = true
             self.loadMoreContent()
         }
     }

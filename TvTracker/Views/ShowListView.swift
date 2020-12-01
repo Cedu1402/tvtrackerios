@@ -22,14 +22,19 @@ struct ShowListView: View {
                         ShowRowView(show: show)
                             .environmentObject(self.dataSource)
                     }.onAppear {
-                        dataSource.loadMoreContentIfNeeded(currentItem: show)
+                        if searchText != "" {
+                            dataSource.searchMoreShows(show: show, query: searchText)
+                        }else{
+                            dataSource.loadMoreContentIfNeeded(currentItem: show)
+                        }
                     }
                 }
                 if dataSource.isLoadingPage {
                     ProgressView()
                 }
             }.add(SearchBar(search: { query in
-                self.dataSource.searchShows(query: query)
+                searchText = query
+                self.dataSource.searchShows(query: query, initialize: true)
             }, cancel: {
                 self.dataSource.resetSearch()
             }))
