@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowDetailView: View {
-    @Binding var show: ShowModel
+    var show: ShowModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @StateObject var dataSource = SeasonDataSource()
@@ -81,7 +81,7 @@ struct ShowDetailView_Previews: PreviewProvider {
          favorite: true)
 
         var body: some View {
-         ShowDetailView(show: $show)
+         ShowDetailView(show: show)
         }
       }
 }

@@ -51,7 +51,7 @@ class ShowService {
         var changed = [ShowModel]()
         let dispatchGroup = DispatchGroup()
         // change the quality of service based on your needs
-        let queue = DispatchQueue(label: "com.stackoverflow", qos: .background)
+        let queue = DispatchQueue(label: "com.tmdb", qos: .userInteractive)
         
         for show in shows{
             dispatchGroup.enter()

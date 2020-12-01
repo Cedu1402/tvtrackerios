@@ -19,7 +19,7 @@ struct ShowListView: View {
                 ForEach(dataSource.shows) {
                  show in
                     NavigationLink(
-                        destination: ShowDetailView(show: $dataSource.shows[show.index])) {
+                        destination: ShowDetailView(show: show)) {
                         ShowRowView(show: show)
                             .environmentObject(self.dataSource)
                     }.onAppear {
