@@ -44,7 +44,6 @@
 		84EF055D2569AB7300D62C7D /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05592569AB7300D62C7D /* EpisodeModel.swift */; };
 		84EF055E2569AB7300D62C7D /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF055A2569AB7300D62C7D /* SeasonModel.swift */; };
 		84EF05652569AB9700D62C7D /* TraktApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05622569AB9700D62C7D /* TraktApi.swift */; };
-		84EF05662569AB9700D62C7D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05632569AB9700D62C7D /* ImageLoader.swift */; };
 		84EF05672569AB9700D62C7D /* ShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05642569AB9700D62C7D /* ShowService.swift */; };
 		84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF056E2569B82500D62C7D /* SearchBar.swift */; };
 		84FB19AA256D327B004692BC /* ShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB19A9256D327B004692BC /* ShowDetailView.swift */; };
@@ -110,7 +109,6 @@
 		84EF05592569AB7300D62C7D /* EpisodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		84EF055A2569AB7300D62C7D /* SeasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
 		84EF05622569AB9700D62C7D /* TraktApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktApi.swift; sourceTree = "<group>"; };
-		84EF05632569AB9700D62C7D /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		84EF05642569AB9700D62C7D /* ShowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowService.swift; sourceTree = "<group>"; };
 		84EF056E2569B82500D62C7D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		84FB19A9256D327B004692BC /* ShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailView.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				405D4BE5257058CC008C6F9E /* Protocols */,
-				84EF05632569AB9700D62C7D /* ImageLoader.swift */,
 				84EF05642569AB9700D62C7D /* ShowService.swift */,
 				84EF05622569AB9700D62C7D /* TraktApi.swift */,
 				84FED80C256AAF6A0057C5B4 /* ShowDataSource.swift */,
@@ -420,7 +417,6 @@
 				84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */,
 				405B2D1D25702CD100A42BFA /* EpisodeService.swift in Sources */,
 				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
-				84EF05662569AB9700D62C7D /* ImageLoader.swift in Sources */,
 				84EF055D2569AB7300D62C7D /* EpisodeModel.swift in Sources */,
 				8419921425757A0B00B0AD3B /* SeasonDetailView.swift in Sources */,
 				405D4C022574E413008C6F9E /* ShowRowView.swift in Sources */,

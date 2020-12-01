@@ -11,7 +11,6 @@ struct ShowListView: View {
     var title: String
     @EnvironmentObject var dataSource: ShowDataSource
     @State var searchText = ""
-    @ObservedObject var searchBar: SearchBar = SearchBar()
     
     var body: some View {
         NavigationView {
@@ -29,10 +28,11 @@ struct ShowListView: View {
                 if dataSource.isLoadingPage {
                     ProgressView()
                 }
-            }.add(self.searchBar)
-            .onReceive(self.searchBar.$text, perform: {_ in
-                
-            })
+            }.add(SearchBar(search: { query in
+                self.dataSource.searchShows(query: query)
+            }, cancel: {
+                self.dataSource.resetSearch()
+            }))
             .navigationBarTitle(self.title)
         }.navigationViewStyle(StackNavigationViewStyle())
     }

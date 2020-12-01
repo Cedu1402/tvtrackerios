@@ -7,22 +7,41 @@
 
 import SwiftUI
 
-class SearchBar: NSObject, ObservableObject {
+class SearchBar: NSObject {
     
-    @Published var text: String = ""
+    var text: String = ""
+    let search: (String) -> ()
+    let cancel: () -> ()
+    
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
-    override init() {
+    init(search: @escaping (String) -> (), cancel: @escaping () -> ()) {
+        self.search = search
+        self.cancel = cancel
+        
         super.init()
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self
+    }
+    
+    
+}
+
+extension SearchBar: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.search(self.text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.cancel()
     }
 }
+
 
 extension SearchBar: UISearchResultsUpdating {
    
     func updateSearchResults(for searchController: UISearchController) {
-        
         // Publish search bar text changes.
         if let searchBarText = searchController.searchBar.text {
             self.text = searchBarText

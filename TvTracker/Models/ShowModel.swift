@@ -13,8 +13,12 @@ struct ShowApiModel: Codable {
 
 struct ShowDetailModel: Codable {
     let title: String
-    let overview: String
+    let overview: String?
     let ids: TraktIdModel
+}
+
+struct SearchModel: Codable {
+    let show: ShowDetailModel
 }
 
 struct ShowModel : Identifiable {
@@ -29,6 +33,3 @@ struct ShowModel : Identifiable {
     var imageURL: URL
     var favorite: Bool
 }
-
-
-

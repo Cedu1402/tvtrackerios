@@ -84,6 +84,24 @@ class ShowDataSource: ObservableObject {
             self.shows[index] = mutableShow
         }
     }
+    
+    
+    func searchShows(query: String){
+        self.showService.searchShow(query: query) { (shows) in
+            self.shows.removeAll()
+            self.shows.append(contentsOf: shows)
+        }
+    }
+    
+    func resetSearch(){
+        if(favoriteView){
+            self.loadFavorites(reload: true)
+        }else {
+            self.shows.removeAll()
+            self.currentPage = 1
+            self.loadMoreContent()
+        }
+    }
 
     private func loadMoreContent() {
         guard (!isLoadingPage && canLoadMorePages) || self.favoriteView else {
@@ -104,3 +122,4 @@ class ShowDataSource: ObservableObject {
         }
     }
 }
+
