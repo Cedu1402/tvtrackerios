@@ -92,23 +92,43 @@ class ShowDataSource: ObservableObject {
             self.canLoadMorePages = true
             self.shows.removeAll()
         }
-        
         isLoadingPage = true
         
-        self.showService.searchShow(query: query, pageNr: self.currentPage) { (shows) in
-            
-            self.shows.append(contentsOf: shows)
-            self.isLoadingPage = false
-            self.currentPage += 1
-            
-            if shows.count < 10 {
-                self.canLoadMorePages = false
+        if self.favoriteView {
+          let result = self.showPersitencyService.serachShow(text: query)
+          for (index, show) in result.enumerated()  {
+                self.shows.append(ShowModel(id: UUID(),
+                                            index: index,
+                                            title: show.title ?? "",
+                                            overview: show.overview ?? "",
+                                            trakt: Int(show.trakt),
+                                            imdb: show.imdb ?? "",
+                                            tvdb: Int(show.trakt),
+                                            tmdb: Int(show.trakt),
+                                            imageURL: show.imageURL!,
+                                            favorite: true))
+            }
+            isLoadingPage = false
+        }else{
+            self.showService.searchShow(query: query, pageNr: self.currentPage) { (shows) in
+                
+                self.shows.append(contentsOf: shows)
+                self.isLoadingPage = false
+                self.currentPage += 1
+                
+                if shows.count < 10 {
+                    self.canLoadMorePages = false
+                }
             }
         }
     }
     
     func searchMoreShows(show: ShowModel, query: String){
-        guard (!isLoadingPage && canLoadMorePages) || self.favoriteView else {
+        if(self.favoriteView){
+            return
+        }
+        
+        guard (!isLoadingPage && canLoadMorePages) else {
           return
         }
         

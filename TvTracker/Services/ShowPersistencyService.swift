@@ -86,4 +86,18 @@ class ShowPersistencyService {
         return fileURL
     }
     
+    func serachShow(text: String) -> [Show] {
+        let query: NSFetchRequest<Show> = Show.fetchRequest()
+        let filter = NSPredicate(format: "title CONTAINS[c] %@", text)
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        query.predicate = filter
+        query.sortDescriptors = [sort]
+
+        do{
+            return try self.context.fetch(query)
+        }catch{
+            return [Show]()
+        }
+    }
+    
 }
