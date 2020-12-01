@@ -50,8 +50,13 @@ class ShowPersistencyService {
         newFavoriteShow.imdb = show.imdb
         newFavoriteShow.tvdb = Int64(show.tvdb)
         newFavoriteShow.trakt = Int64(show.trakt)
+        
         let localImage = self.saveImageToFileSystem(image: show.imageURL)
         newFavoriteShow.imageURL = localImage
+        
+        let localBanner = self.saveImageToFileSystem(image: show.bannerImageURL)
+        newFavoriteShow.bannerImageURL = localBanner
+        
         try? self.context.save()
     }
     

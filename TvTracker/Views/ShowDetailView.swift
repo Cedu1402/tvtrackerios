@@ -16,7 +16,7 @@ struct ShowDetailView: View {
     var body: some View {
         ScrollView {
             GeometryReader { geometry in
-                ListImageView(url: show.imageURL)
+                ListImageView(url: show.bannerImageURL)
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width,
                            height: geometry.size.height)
@@ -78,6 +78,7 @@ struct ShowDetailView_Previews: PreviewProvider {
          tvdb: 0,
             tmdb: 0,
          imageURL: URL(string: "https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg")!,
+         bannerImageURL: URL(string: "https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg")!,
          favorite: true)
 
         var body: some View {

@@ -40,6 +40,7 @@ class ShowDataSource: ObservableObject {
                                         tvdb: Int(show.trakt),
                                         tmdb: Int(show.trakt),
                                         imageURL: show.imageURL!,
+                                        bannerImageURL: show.bannerImageURL ?? show.imageURL!,
                                         favorite: true))
         }
     }
@@ -106,6 +107,7 @@ class ShowDataSource: ObservableObject {
                                             tvdb: Int(show.trakt),
                                             tmdb: Int(show.trakt),
                                             imageURL: show.imageURL!,
+                                            bannerImageURL: show.bannerImageURL ??  show.imageURL!,
                                             favorite: true))
             }
             isLoadingPage = false

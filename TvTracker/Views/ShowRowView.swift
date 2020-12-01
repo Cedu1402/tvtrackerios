@@ -62,6 +62,7 @@ struct ReleaseRowView_Previews: PreviewProvider {
             tvdb: 0,
                tmdb: 0,
             imageURL: URL(string: "https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg")!,
+            bannerImageURL: URL(string: "https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg")!,
             favorite: true)
         
        var body: some View {

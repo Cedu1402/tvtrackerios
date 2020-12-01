@@ -85,6 +85,7 @@ struct FavoriteStarView_Previews: PreviewProvider {
         tvdb: 0,
         tmdb: 0,
         imageURL: URL(string: "test.ch")!,
+        bannerImageURL: URL(string: "test.ch")!,
         favorite: true)
 
        var body: some View {

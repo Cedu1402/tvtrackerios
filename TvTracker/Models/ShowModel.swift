@@ -31,5 +31,6 @@ struct ShowModel : Identifiable {
     let tvdb: Int
     let tmdb: Int
     var imageURL: URL
+    var bannerImageURL: URL
     var favorite: Bool
 }

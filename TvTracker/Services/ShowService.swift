@@ -34,6 +34,7 @@ class ShowService {
                                            tvdb: data.show.ids.tvdb ?? 0,
                                            tmdb: data.show.ids.tmdb ?? 0,
                                            imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb ?? 0)-1.jpg")!,
+                                           bannerImageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb ?? 0)-1.jpg")!,
                                            favorite: self.showPersitencyService.isFavorite(trakt: data.show.ids.trakt)))
                 }
                 
@@ -62,7 +63,8 @@ class ShowService {
                 self.getImageUrl(tmdb: show.tmdb) { url in
                     dispatchGroup.leave()
                     var updatedShow = show
-                    updatedShow.imageURL = URL(string: url ?? show.imageURL.absoluteString) ?? show.imageURL
+                    updatedShow.imageURL = URL(string: url.image ?? show.imageURL.absoluteString) ?? show.imageURL
+                    updatedShow.bannerImageURL = URL(string: url.banner ?? updatedShow.imageURL.absoluteString) ?? updatedShow.imageURL
                     changed.append(updatedShow)
                 }
             }
@@ -73,26 +75,24 @@ class ShowService {
         })
     }
     
-    func getImageUrl(tmdb: Int, completion: @escaping (String?) -> ()) {
+    func getImageUrl(tmdb: Int, completion: @escaping ((image: String?, banner: String?)) -> ()) {
         let key = "71924cf7c3c58c0d8576553cbb9f2132"
         let url = "https://api.themoviedb.org/3/tv/\(tmdb)/images?api_key=\(key)"
         let baseImageUrl = "http://image.tmdb.org/t/p/w500"
         
         AF.request(url).responseData { response in
             if(response.data == nil){
-                completion(nil)
+                completion((image: nil, banner: nil))
             }
             
             do {
                 let result = try JSONDecoder().decode(TMDBImages.self, from: response.data!)
-                if result.posters.count > 0 {
-                    completion(baseImageUrl + result.posters[0].file_path)
-                }else{
-                    completion(nil)
-                }
+                let poster = result.posters.count > 0 ? baseImageUrl + result.posters[0].file_path : nil
+                let banner = result.backdrops.count > 0 ? baseImageUrl + result.backdrops[0].file_path : nil
+                completion((image: poster, banner: banner))
             }catch{
                 print(error)
-                completion(nil)
+                completion((image: nil, banner: nil))
             }
         }
     }
@@ -124,6 +124,7 @@ class ShowService {
                                            tvdb: data.show.ids.tvdb ?? 0,
                                            tmdb: data.show.ids.tmdb ?? 0,
                                            imageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb ?? 0)-1.jpg")!,
+                                           bannerImageURL: URL(string: "https://www.thetvdb.com/banners/posters/\(data.show.ids.tvdb ?? 0)-1.jpg")!,
                                            favorite: self.showPersitencyService.isFavorite(trakt: data.show.ids.trakt)))
                 }
                 
