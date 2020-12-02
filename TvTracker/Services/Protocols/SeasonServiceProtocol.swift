@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SeasonServiceProtocol {
-    func getSeasons(imdb: String, completion: @escaping ([SeasonModel]) -> ())
+    func getSeasons(show: ShowModel, completion: @escaping ([SeasonModel]) -> ())
 }
 

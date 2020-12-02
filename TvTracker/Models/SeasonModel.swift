@@ -29,5 +29,6 @@ struct SeasonModel : Identifiable {
     let trakt: Int
     let tvdb: Int
     let tmdb: Int
+    var imageUrl: URL
 }
 

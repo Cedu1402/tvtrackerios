@@ -10,8 +10,12 @@ import SwiftUI
 struct ShowDetailView: View {
     var show: ShowModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    var dataSource: SeasonDataSource;
     
-    @StateObject var dataSource = SeasonDataSource()
+    init(isFavoriteView: Bool, show: ShowModel){
+        self.dataSource = SeasonDataSource(favoriteView: isFavoriteView, show: show)
+        self.show = show
+    }
     
     var body: some View {
         ScrollView {
@@ -49,13 +53,8 @@ struct ShowDetailView: View {
                         ProgressView()
                     }
                 }
-                
-                
             }
             .padding(.horizontal, 10)
-        }
-        .onAppear {
-            dataSource.loadContent(imdb: show.imdb)
         }
         .navigationBarTitle(Text(show.title), displayMode: .inline)
     
@@ -82,7 +81,7 @@ struct ShowDetailView_Previews: PreviewProvider {
          favorite: true)
 
         var body: some View {
-         ShowDetailView(show: show)
+         ShowDetailView(isFavoriteView: false, show: show)
         }
       }
 }

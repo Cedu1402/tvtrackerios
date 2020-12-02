@@ -33,4 +33,19 @@ struct ShowModel : Identifiable {
     var imageURL: URL
     var bannerImageURL: URL
     var favorite: Bool
+    
+    
+   static func convertFromShow(show: Show, index: Int) -> ShowModel {
+       return ShowModel(id: UUID(),
+                 index: index,
+                 title: show.title ?? "",
+                 overview: show.overview ?? "",
+                 trakt: Int(show.trakt),
+                 imdb: show.imdb ?? "",
+                 tvdb: Int(show.trakt),
+                 tmdb: Int(show.trakt),
+                 imageURL: show.imageURL!,
+                 bannerImageURL: show.bannerImageURL ?? show.imageURL!,
+                 favorite: true)
+    }
 }

@@ -20,7 +20,7 @@ class SeasonPersistencyService {
     
     
     public func saveSeasonOfShow(show: Show){
-        self.seasonService.getSeasons(imdb: show.imdb ?? "") { (seasons) in
+        self.seasonService.getSeasons(show: ShowModel.convertFromShow(show: show, index: 0)) { (seasons) in
             
             for season in seasons {
                 let newSeason = NSEntityDescription.insertNewObject(
@@ -34,7 +34,7 @@ class SeasonPersistencyService {
                 newSeason.tvdb = Int64(season.tvdb)
                 newSeason.trakt = Int64(season.trakt)
                 newSeason.number = Int64(season.number)
-                
+                newSeason.imageUrl = season.imageUrl
                 show.addToSeasons(newSeason)
             }
             
@@ -46,8 +46,5 @@ class SeasonPersistencyService {
             }
         }
     }
-    
-    
-    
     
 }

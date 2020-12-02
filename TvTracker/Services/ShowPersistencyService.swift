@@ -105,4 +105,27 @@ class ShowPersistencyService {
         }
     }
     
+    public func getSeasonsOfShow(imdb: String) -> [Season]? {
+        let query: NSFetchRequest<Show> = Show.fetchRequest()
+        let filter = NSPredicate(format: "imdb == %@", imdb)
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        query.predicate = filter
+        query.sortDescriptors = [sort]
+
+        do{
+            let result = try self.context.fetch(query)
+            if result.count == 0 {
+                return nil
+            }
+            guard let season = result[0].seasons else {
+                return nil
+            }
+            
+            return Array(_immutableCocoaArray: season)
+        }catch{
+            return nil
+        }
+        
+    }
+    
 }

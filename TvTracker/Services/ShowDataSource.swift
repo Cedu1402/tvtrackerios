@@ -11,12 +11,13 @@ class ShowDataSource: ObservableObject {
     
     @Published var shows = [ShowModel]()
     @Published var isLoadingPage = false
+    @Published var favoriteView: Bool
     
     private var currentPage = 1
     private var canLoadMorePages = true
     private let showService = ShowService()
     private let showPersitencyService = ShowPersistencyService(persistency: PersistenceController.shared)
-    private var favoriteView: Bool
+    
     
     init(favorite: Bool) {
         favoriteView = favorite

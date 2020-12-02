@@ -76,8 +76,8 @@ class ShowService {
     }
     
     func getImageUrl(tmdb: Int, completion: @escaping ((image: String?, banner: String?)) -> ()) {
-        let key = "71924cf7c3c58c0d8576553cbb9f2132"
-        let url = "https://api.themoviedb.org/3/tv/\(tmdb)/images?api_key=\(key)"
+       
+        let url = "https://api.themoviedb.org/3/tv/\(tmdb)/images?api_key=\(TmdbApi.key)"
         let baseImageUrl = "http://image.tmdb.org/t/p/w500"
         
         AF.request(url).responseData { response in

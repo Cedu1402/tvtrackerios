@@ -18,7 +18,7 @@ struct ShowListView: View {
                 ForEach(dataSource.shows) {
                  show in
                     NavigationLink(
-                        destination: ShowDetailView(show: show)) {
+                        destination: ShowDetailView(isFavoriteView: dataSource.favoriteView, show: show)) {
                         ShowRowView(show: show)
                             .environmentObject(self.dataSource)
                     }.onAppear {
