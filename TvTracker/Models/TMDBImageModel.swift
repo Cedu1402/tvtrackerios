@@ -25,3 +25,8 @@ struct TMDBSeasonImages : Codable {
     let id: Int
     let posters: [TMDBImageInfo]
 }
+
+struct TMDBEpisodeImages : Codable {
+    let id: Int
+    let stills: [TMDBImageInfo]
+}

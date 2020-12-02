@@ -17,7 +17,8 @@ struct EpisodeApiModel: Codable {
     let ids: EpisodeIdModel
 }
 
-struct EpisodeModel {
+struct EpisodeModel: Identifiable {
+    var id: UUID
     let season: Int
     let number: Int
     let title: String
@@ -27,4 +28,5 @@ struct EpisodeModel {
     let trakt: Int
     let imdb: String
     let tvdb: Int
+    var imageUrl: URL
 }

@@ -12,7 +12,8 @@ class SeasonService: SeasonServiceProtocol {
 
     func getSeasons(show: ShowModel, completion: @escaping ([SeasonModel]) -> ()) {
         
-        AF.request(URL(string: TraktApi.baseUrl + "shows/" + show.imdb + "/seasons?extended=full")!).responseData { response in
+        AF.request(URL(string: TraktApi.baseUrl + "shows/" + show.imdb + "/seasons?extended=full")!,
+                   headers: TraktApi.getHeaders()).responseData { response in
             var seasons = [SeasonModel]()
             
             if(response.data == nil){

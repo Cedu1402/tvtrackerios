@@ -11,6 +11,8 @@
 		40106C1B2575A5DD008A0605 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */; };
 		403A17A625782DF900BA75A2 /* TmdbApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A17A525782DF900BA75A2 /* TmdbApi.swift */; };
 		403A17AB25783A4E00BA75A2 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A17AA25783A4D00BA75A2 /* FileService.swift */; };
+		403A17B02578469D00BA75A2 /* EpisodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A17AF2578469C00BA75A2 /* EpisodeDataSource.swift */; };
+		403A17BC257848C600BA75A2 /* EpisodePersistencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A17BB257848C600BA75A2 /* EpisodePersistencyService.swift */; };
 		404AA2CB2570308B00D1036F /* EpisodeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */; };
 		404AA2D32570384500D1036F /* SeasonPersitencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2D22570384500D1036F /* SeasonPersitencyService.swift */; };
 		404AA2D82570486F00D1036F /* ConvertToDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AA2D72570486F00D1036F /* ConvertToDateTest.swift */; };
@@ -74,6 +76,8 @@
 		40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		403A17A525782DF900BA75A2 /* TmdbApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbApi.swift; sourceTree = "<group>"; };
 		403A17AA25783A4D00BA75A2 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		403A17AF2578469C00BA75A2 /* EpisodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDataSource.swift; sourceTree = "<group>"; };
+		403A17BB257848C600BA75A2 /* EpisodePersistencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePersistencyService.swift; sourceTree = "<group>"; };
 		404AA2CA2570308B00D1036F /* EpisodeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeServiceTest.swift; sourceTree = "<group>"; };
 		404AA2D22570384500D1036F /* SeasonPersitencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonPersitencyService.swift; sourceTree = "<group>"; };
 		404AA2D72570486F00D1036F /* ConvertToDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDateTest.swift; sourceTree = "<group>"; };
@@ -146,6 +150,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		403A17B42578485300BA75A2 /* ShowServices */ = {
+			isa = PBXGroup;
+			children = (
+				84EF05642569AB9700D62C7D /* ShowService.swift */,
+				84FED80C256AAF6A0057C5B4 /* ShowDataSource.swift */,
+				405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */,
+			);
+			path = ShowServices;
+			sourceTree = "<group>";
+		};
+		403A17B52578486400BA75A2 /* SeasonServices */ = {
+			isa = PBXGroup;
+			children = (
+				405B2D12256DB38B00A42BFA /* SeasonService.swift */,
+				404AA2D22570384500D1036F /* SeasonPersitencyService.swift */,
+				84CA63EE257532C1009BF76B /* SeasonDataSource.swift */,
+			);
+			path = SeasonServices;
+			sourceTree = "<group>";
+		};
+		403A17B62578487500BA75A2 /* EpisodeServices */ = {
+			isa = PBXGroup;
+			children = (
+				405B2D1C25702CD000A42BFA /* EpisodeService.swift */,
+				403A17AF2578469C00BA75A2 /* EpisodeDataSource.swift */,
+				403A17BB257848C600BA75A2 /* EpisodePersistencyService.swift */,
+			);
+			path = EpisodeServices;
+			sourceTree = "<group>";
+		};
+		403A17BA2578489F00BA75A2 /* ApiServices */ = {
+			isa = PBXGroup;
+			children = (
+				84EF05622569AB9700D62C7D /* TraktApi.swift */,
+				403A17A525782DF900BA75A2 /* TmdbApi.swift */,
+			);
+			path = ApiServices;
+			sourceTree = "<group>";
+		};
 		405D4BE5257058CC008C6F9E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,15 +288,10 @@
 			isa = PBXGroup;
 			children = (
 				405D4BE5257058CC008C6F9E /* Protocols */,
-				84EF05642569AB9700D62C7D /* ShowService.swift */,
-				84EF05622569AB9700D62C7D /* TraktApi.swift */,
-				84FED80C256AAF6A0057C5B4 /* ShowDataSource.swift */,
-				405B2D05256D9CD200A42BFA /* ShowPersistencyService.swift */,
-				405B2D12256DB38B00A42BFA /* SeasonService.swift */,
-				405B2D1C25702CD000A42BFA /* EpisodeService.swift */,
-				404AA2D22570384500D1036F /* SeasonPersitencyService.swift */,
-				84CA63EE257532C1009BF76B /* SeasonDataSource.swift */,
-				403A17A525782DF900BA75A2 /* TmdbApi.swift */,
+				403A17B42578485300BA75A2 /* ShowServices */,
+				403A17BA2578489F00BA75A2 /* ApiServices */,
+				403A17B52578486400BA75A2 /* SeasonServices */,
+				403A17B62578487500BA75A2 /* EpisodeServices */,
 				403A17AA25783A4D00BA75A2 /* FileService.swift */,
 			);
 			path = Services;
@@ -430,6 +468,7 @@
 				84FB19AA256D327B004692BC /* ShowDetailView.swift in Sources */,
 				84EDF05E2569280000037F00 /* FavoritesView.swift in Sources */,
 				405D4BF8257454A2008C6F9E /* TMDBImageModel.swift in Sources */,
+				403A17B02578469D00BA75A2 /* EpisodeDataSource.swift in Sources */,
 				405B2D13256DB38B00A42BFA /* SeasonService.swift in Sources */,
 				84EF05672569AB9700D62C7D /* ShowService.swift in Sources */,
 				84EF055B2569AB7300D62C7D /* TraktIdModel.swift in Sources */,
@@ -448,6 +487,7 @@
 				403A17AB25783A4E00BA75A2 /* FileService.swift in Sources */,
 				403A17A625782DF900BA75A2 /* TmdbApi.swift in Sources */,
 				84EDF0592569279800037F00 /* ReleaseView.swift in Sources */,
+				403A17BC257848C600BA75A2 /* EpisodePersistencyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

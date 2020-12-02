@@ -10,11 +10,13 @@ import SwiftUI
 struct ShowDetailView: View {
     var show: ShowModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    var dataSource: SeasonDataSource;
+    @ObservedObject var dataSource: SeasonDataSource;
+    var isFavoriteView: Bool
     
     init(isFavoriteView: Bool, show: ShowModel){
         self.dataSource = SeasonDataSource(favoriteView: isFavoriteView, show: show)
         self.show = show
+        self.isFavoriteView = isFavoriteView
     }
     
     var body: some View {
@@ -44,7 +46,9 @@ struct ShowDetailView: View {
                     ForEach(dataSource.seasons) {
                      season in
                         NavigationLink(
-                            destination: SeasonDetailView(season: season)){
+                            destination: SeasonDetailView(isFavoriteView: self.isFavoriteView,
+                                                          show: self.show,
+                                                          season: season)){
                             Text(season.title).frame(maxWidth: .infinity, alignment: .leading)
                         }
                         Divider()
