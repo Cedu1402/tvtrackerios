@@ -11,9 +11,12 @@ import CoreData
 class ShowPersistencyService {
     
     private let context: NSManagedObjectContext
+    private let seasonPersistencyService: SeasonPersistencyService
     
     init(persistency: PersistenceController){
         context = persistency.container.viewContext
+        seasonPersistencyService = SeasonPersistencyService(persistency: persistency,
+                                                            seasonService: SeasonService())
     }
 
     func isFavorite(trakt: Int) -> Bool {
@@ -51,13 +54,15 @@ class ShowPersistencyService {
         newFavoriteShow.tvdb = Int64(show.tvdb)
         newFavoriteShow.trakt = Int64(show.trakt)
         
-        let localImage = self.saveImageToFileSystem(image: show.imageURL)
+        let localImage = FileService.saveImageToFileSystem(image: show.imageURL)
         newFavoriteShow.imageURL = localImage
         
-        let localBanner = self.saveImageToFileSystem(image: show.bannerImageURL)
+        let localBanner = FileService.saveImageToFileSystem(image: show.bannerImageURL)
         newFavoriteShow.bannerImageURL = localBanner
         
         try? self.context.save()
+        
+        self.seasonPersistencyService.saveSeasonOfShow(show: newFavoriteShow)
     }
     
     
@@ -77,19 +82,7 @@ class ShowPersistencyService {
         }
     }
     
-    func saveImageToFileSystem(image: URL) -> URL {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let name = image.deletingPathExtension().lastPathComponent + "." + image.pathExtension
-        let fileURL = documentsUrl.appendingPathComponent(name)
-        do {
-            let data = try Data(contentsOf: image) // not NSData !!
-            try data.write(to: fileURL, options: .atomic)
-        } catch {
-            print(error,"failed to save image")
-            return image
-        }
-        return fileURL
-    }
+
     
     func serachShow(text: String) -> [Show] {
         let query: NSFetchRequest<Show> = Show.fetchRequest()
@@ -117,11 +110,11 @@ class ShowPersistencyService {
             if result.count == 0 {
                 return nil
             }
-            guard let season = result[0].seasons else {
+            guard let seasons = result[0].seasons else {
                 return nil
             }
             
-            return Array(_immutableCocoaArray: season)
+            return seasons.allObjects as? [Season]
         }catch{
             return nil
         }

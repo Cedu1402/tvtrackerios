@@ -34,7 +34,7 @@ class SeasonPersistencyService {
                 newSeason.tvdb = Int64(season.tvdb)
                 newSeason.trakt = Int64(season.trakt)
                 newSeason.number = Int64(season.number)
-                newSeason.imageUrl = season.imageUrl
+                newSeason.imageUrl = FileService.saveImageToFileSystem(image: season.imageUrl)
                 show.addToSeasons(newSeason)
             }
             

@@ -27,7 +27,7 @@ class ShowServiceTest: XCTestCase {
         let e = expectation(description: "Show service api request")
         
         ShowService().getImageUrl(tmdb: 113956) { url in
-            XCTAssertTrue(url!.count > 0, "Check if shows found")
+            XCTAssertNotNil(url.image)
             e.fulfill()
         }
         waitForExpectations(timeout: 5.0, handler: nil)
@@ -37,7 +37,7 @@ class ShowServiceTest: XCTestCase {
         // 113956
         let e = expectation(description: "Show service api request")
         
-        ShowService().searchShow(query: "Breaking Bad") { data in
+        ShowService().searchShow(query: "Breaking Bad", pageNr: 1) { data in
             XCTAssertTrue(data.count > 0, "Check if shows found")
             e.fulfill()
         }

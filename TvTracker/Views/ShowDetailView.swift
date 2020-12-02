@@ -44,7 +44,7 @@ struct ShowDetailView: View {
                     ForEach(dataSource.seasons) {
                      season in
                         NavigationLink(
-                            destination: EmptyView()){
+                            destination: SeasonDetailView(season: season)){
                             Text(season.title).frame(maxWidth: .infinity, alignment: .leading)
                         }
                         Divider()

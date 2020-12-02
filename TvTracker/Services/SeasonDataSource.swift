@@ -66,6 +66,7 @@ class SeasonDataSource: ObservableObject {
                                             imageUrl: favorite.imageUrl ?? URL(string: "")!))
         }
         
+        isLoadingPage = false
     }
     
 }
