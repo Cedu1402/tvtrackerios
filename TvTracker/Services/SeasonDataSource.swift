@@ -66,6 +66,9 @@ class SeasonDataSource: ObservableObject {
                                             imageUrl: favorite.imageUrl ?? URL(string: "")!))
         }
         
+        self.seasons.sort {
+            $0.number < $1.number
+        }
         isLoadingPage = false
     }
     

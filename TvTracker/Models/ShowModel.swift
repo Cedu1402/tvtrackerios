@@ -23,7 +23,6 @@ struct SearchModel: Codable {
 
 struct ShowModel : Identifiable {
     var id: UUID
-    let index: Int
     let title: String
     let overview: String
     let trakt: Int
@@ -37,7 +36,6 @@ struct ShowModel : Identifiable {
     
    static func convertFromShow(show: Show, index: Int) -> ShowModel {
        return ShowModel(id: UUID(),
-                 index: index,
                  title: show.title ?? "",
                  overview: show.overview ?? "",
                  trakt: Int(show.trakt),

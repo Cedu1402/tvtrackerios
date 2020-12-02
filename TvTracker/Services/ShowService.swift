@@ -24,9 +24,8 @@ class ShowService {
             
             do {
                 let result = try JSONDecoder().decode([ShowApiModel].self, from: response.data!)
-                for (index, data) in result.enumerated() {
+                for data in result {
                     shows.append(ShowModel(id: UUID(),
-                                           index: index + (pageNr - 1) * 10,
                                            title: data.show.title,
                                            overview: data.show.overview ?? "",
                                            trakt: data.show.ids.trakt,
@@ -114,9 +113,8 @@ class ShowService {
             
             do {
                 let result = try JSONDecoder().decode([SearchModel].self, from: response.data!)
-                for (index, data) in result.enumerated() {
+                for data in result {
                     shows.append(ShowModel(id: UUID(),
-                                           index: index + (pageNr - 1) * 10,
                                            title: data.show.title,
                                            overview: data.show.overview ?? "",
                                            trakt: data.show.ids.trakt,

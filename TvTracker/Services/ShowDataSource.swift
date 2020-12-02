@@ -31,9 +31,8 @@ class ShowDataSource: ObservableObject {
             self.shows.removeAll()
         }
         let favorites =  showPersitencyService.getFavorites()
-        for (index, show) in favorites.enumerated()  {
+        for show in favorites  {
             self.shows.append(ShowModel(id: UUID(),
-                                        index: index,
                                         title: show.title ?? "",
                                         overview: show.overview ?? "",
                                         trakt: Int(show.trakt),
@@ -44,6 +43,15 @@ class ShowDataSource: ObservableObject {
                                         bannerImageURL: show.bannerImageURL ?? show.imageURL!,
                                         favorite: true))
         }
+    }
+    
+    func isFavorite(show: ShowModel) -> Bool{
+        guard let found = self.shows.first(where: { s -> Bool in
+            s.trakt == show.trakt
+        })else {
+            return false
+        }
+        return found.favorite
     }
 
     func loadMoreContentIfNeeded(currentItem show: ShowModel?) {
@@ -63,15 +71,20 @@ class ShowDataSource: ObservableObject {
     }
     
     func updateFavoriteFlags(){
-        for (index, show) in shows.enumerated() {
+        for show in shows {
             if show.favorite != self.showPersitencyService.isFavorite(trakt: show.trakt){
-                changeFavoriteFlag(index: index)
+                changeFavoriteFlag(show: show)
             }
         }
     }
     
-    func changeFavoriteFlag(index: Int){
-        let show = self.shows[index]
+    func changeFavoriteFlag(show: ShowModel){
+        guard let index = self.shows.firstIndex(where: { (s) -> Bool in
+            s.trakt == show.trakt
+        }) else {
+            return
+        }
+        
         var mutableShow = show
         if(!show.favorite){
             self.showPersitencyService.saveAsFavorite(show: show)
@@ -98,9 +111,8 @@ class ShowDataSource: ObservableObject {
         
         if self.favoriteView {
           let result = self.showPersitencyService.serachShow(text: query)
-          for (index, show) in result.enumerated()  {
+          for show in result  {
                 self.shows.append(ShowModel(id: UUID(),
-                                            index: index,
                                             title: show.title ?? "",
                                             overview: show.overview ?? "",
                                             trakt: Int(show.trakt),

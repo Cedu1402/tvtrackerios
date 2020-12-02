@@ -17,7 +17,7 @@ struct FavoriteStarView: View {
         Button(action: {
             self.showingAlert = true
         }) {
-            if(dataSource.shows.count > show.index && dataSource.shows[show.index].favorite) {
+            if(dataSource.isFavorite(show: show)) {
                 Image(systemName: "star.fill")
                     .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
             }
@@ -77,7 +77,6 @@ struct FavoriteStarView_Previews: PreviewProvider {
      struct PreviewWrapper: View {
        @State() var show =  ShowModel(
         id: UUID(),
-        index: 1,
         title: "test show",
         overview: "",
         trakt: 0,

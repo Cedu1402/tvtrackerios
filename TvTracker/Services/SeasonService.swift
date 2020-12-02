@@ -40,7 +40,9 @@ class SeasonService: SeasonServiceProtocol {
             }
             
             self.getImagesOfSeasons(show: show, seasons: seasons) { seasonsWithImages in
-                completion(seasonsWithImages)
+                completion(seasonsWithImages.sorted{
+                    $0.number < $1.number
+                })
             }
         }
         .resume()
