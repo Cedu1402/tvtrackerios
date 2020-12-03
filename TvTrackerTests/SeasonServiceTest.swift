@@ -15,7 +15,6 @@ class SeasonServiceTest: XCTestCase {
         let e = expectation(description: "Season service api request")
         
         SeasonService().getSeasons(show: ShowModel(id: UUID(),
-                                                   index: 1,
                                                    title: "",
                                                    overview: "",
                                                    trakt: 1,
@@ -36,7 +35,6 @@ class SeasonServiceTest: XCTestCase {
         let e = expectation(description: "Season service api request")
         
         SeasonService().getSeasons(show: ShowModel(id: UUID(),
-                                                   index: 1,
                                                    title: "",
                                                    overview: "",
                                                    trakt: 1,

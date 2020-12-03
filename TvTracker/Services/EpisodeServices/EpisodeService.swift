@@ -17,6 +17,7 @@ class EpisodeService {
                     
             var episodes = [EpisodeModel]()
             if(response.data == nil){
+                completion([EpisodeModel]())
                 return
             }
             

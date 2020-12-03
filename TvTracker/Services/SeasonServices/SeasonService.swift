@@ -17,6 +17,7 @@ class SeasonService: SeasonServiceProtocol {
             var seasons = [SeasonModel]()
             
             if(response.data == nil){
+                completion([SeasonModel]())
                 return
             }
             

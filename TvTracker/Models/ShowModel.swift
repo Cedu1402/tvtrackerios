@@ -42,8 +42,8 @@ struct ShowModel : Identifiable {
                  imdb: show.imdb ?? "",
                  tvdb: Int(show.trakt),
                  tmdb: Int(show.trakt),
-                 imageURL: show.imageURL!,
-                 bannerImageURL: show.bannerImageURL ?? show.imageURL!,
+                 imageURL: show.imageURL ?? URL(string: "https://www.seo-kueche.de/wp-content/uploads/2020/06/404-fehler-page-seiten-titel.jpg")!,
+                 bannerImageURL: show.bannerImageURL ?? (show.imageURL ?? URL(string: "https://www.seo-kueche.de/wp-content/uploads/2020/06/404-fehler-page-seiten-titel.jpg")!),
                  favorite: true)
     }
 }
