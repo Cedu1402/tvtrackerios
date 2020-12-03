@@ -9,13 +9,26 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-    
-        
-        VStack{
-            Text("TV Tracker").font(.title).bold()
+        VStack(alignment: .leading){
+            Image("tvtracker_logo")
+                .resizable()
+                .scaledToFit()
             
-            Text("powered by").frame(width: .infinity, alignment: .center)
             
+            Text("Version 1.0.0")
+                .padding(.top, 20)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+            
+            
+            
+            Text("Created by")
+                .padding(.top, 20)
+                .padding(.bottom, 2)
+            Text("Cedric Blaser")
+            Text("Luca Sommer")
+            
+            Text("powered by")
+                .padding(.top, 100)
             
             HStack {
                 Image("trakttv_logo")
@@ -33,6 +46,8 @@ struct AboutView: View {
             Spacer()
 
         }
+        .padding(.all, 20)
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .topLeading)
 
     }
 }
