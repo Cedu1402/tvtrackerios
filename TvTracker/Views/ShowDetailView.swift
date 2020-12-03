@@ -35,7 +35,7 @@ struct ShowDetailView: View {
                 Text(show.overview)
                     .padding(.top, 10)
                 
-                LazyVStack {
+                VStack {
                     if(dataSource.seasons.count > 0) {
                         Text("Seasons")
                             .font(.subheadline)
@@ -59,7 +59,9 @@ struct ShowDetailView: View {
                 }
             }
             .padding(.horizontal, 10)
-        }
+        }.onAppear(perform: {
+            self.dataSource.loadContent()
+        })
         .navigationBarTitle(Text(show.title), displayMode: .inline)
     
     }

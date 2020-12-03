@@ -16,13 +16,18 @@ class SeasonDataSource: ObservableObject {
     private let seasonPersistencyService = SeasonPersistencyService(persistency: PersistenceController.shared,                                             seasonService: SeasonService())
     private let showPersistencyService = ShowPersistencyService(persistency: PersistenceController.shared)
     private let favoriteView: Bool
+    private let show: ShowModel
     
     init(favoriteView: Bool, show: ShowModel){
         self.favoriteView = favoriteView
-        if favoriteView {
-            loadContentCoreData(show: show)
+        self.show = show
+    }
+    
+    public func loadContent(){
+        if self.favoriteView {
+            loadContentCoreData(show: self.show)
         }else {
-            loadContentTrakt(show: show)
+            loadContentTrakt(show: self.show)
         }
     }
     
