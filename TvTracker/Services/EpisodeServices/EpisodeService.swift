@@ -31,8 +31,8 @@ class EpisodeService {
                                                  firstAired: TraktApi.convertToDate(date: data.first_aired),
                                                  runtime: data.runtime,
                                                  trakt: data.ids.trakt,
-                                                 imdb: data.ids.imdb,
-                                                 tvdb: data.ids.tvdb,
+                                                 imdb: data.ids.imdb ?? "",
+                                                 tvdb: data.ids.tvdb ?? 0,
                                                  imageUrl: show.imageURL))
                 }
             }catch{

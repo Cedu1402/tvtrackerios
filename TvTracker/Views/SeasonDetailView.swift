@@ -47,7 +47,7 @@ struct SeasonDetailView: View {
                     ForEach(dataSource.episodes) {
                      episode in
                         NavigationLink(
-                            destination: EmptyView()){
+                            destination: EpisodeDetailView(episode: episode)){
                             Text(String(episode.number) + " - " + episode.title).frame(maxWidth: .infinity, alignment: .leading)
                         }
                         Divider()
@@ -58,11 +58,10 @@ struct SeasonDetailView: View {
                 }
                 
             }
-        }.onAppear(perform: {
-            self.dataSource.loadContent()
-        }).onTapGesture {
-            self.dataSource.loadContent()
         }
+        .onReceive(self.dataSource.$episodes, perform: { _ in
+           self.dataSource.loadContent()
+        })
     }
 }
 

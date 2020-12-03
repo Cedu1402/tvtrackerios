@@ -13,10 +13,12 @@ class ShowPersistencyService {
     private let context: NSManagedObjectContext
     private let seasonPersistencyService: SeasonPersistencyService
     
+    
     init(persistency: PersistenceController){
         context = persistency.container.viewContext
         seasonPersistencyService = SeasonPersistencyService(persistency: persistency,
                                                             seasonService: SeasonService())
+        
     }
 
     func isFavorite(trakt: Int) -> Bool {
@@ -63,6 +65,7 @@ class ShowPersistencyService {
         try? self.context.save()
         
         self.seasonPersistencyService.saveSeasonOfShow(show: newFavoriteShow)
+        
     }
     
     
@@ -121,4 +124,24 @@ class ShowPersistencyService {
         
     }
     
+    
+    public func getEpisodesOfShowAndSeason(imdb: String, number: Int) -> [Episode]? {
+        
+        guard let seasons = self.getSeasonsOfShow(imdb: imdb) else {
+            return nil
+        }
+        
+        guard let season = (seasons.first {
+            $0.number == number
+        }) else {
+            return nil
+        }
+        
+        guard let episodes = season.episodes else {
+            return nil
+        }
+        
+        return episodes.allObjects as? [Episode]
+        
+    }
 }
