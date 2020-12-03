@@ -13,8 +13,12 @@ class SeasonDataSource: ObservableObject {
     @Published var isLoadingPage = false
     
     private let seasonService = SeasonService()
-    private let seasonPersistencyService = SeasonPersistencyService(persistency: PersistenceController.shared,                                             seasonService: SeasonService())
+    private let seasonPersistencyService = SeasonPersistencyService(
+        persistency: PersistenceController.shared,
+        seasonService: SeasonService())
     private let showPersistencyService = ShowPersistencyService(persistency: PersistenceController.shared)
+    private var canLoadMorePages = true
+    
     private let favoriteView: Bool
     private let show: ShowModel
     
@@ -32,7 +36,7 @@ class SeasonDataSource: ObservableObject {
     }
     
     private func loadContentTrakt(show: ShowModel){
-        if (isLoadingPage || self.seasons.count > 0) {
+        if (isLoadingPage || self.seasons.count > 0 || !canLoadMorePages) {
             return
         }
 
@@ -42,12 +46,13 @@ class SeasonDataSource: ObservableObject {
             self.seasons.append(contentsOf: data)
             
             self.isLoadingPage = false
+            self.canLoadMorePages = false
         }
     }
     
     
     private func loadContentCoreData(show: ShowModel) {
-        if (isLoadingPage || self.seasons.count > 0) {
+        if (isLoadingPage || self.seasons.count > 0 || !self.canLoadMorePages) {
             return
         }
         
@@ -75,6 +80,7 @@ class SeasonDataSource: ObservableObject {
             $0.number < $1.number
         }
         isLoadingPage = false
+        self.canLoadMorePages = false
     }
     
 }

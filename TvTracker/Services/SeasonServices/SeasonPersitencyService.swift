@@ -12,10 +12,12 @@ class SeasonPersistencyService {
     
     private let context: NSManagedObjectContext
     private let seasonService: SeasonServiceProtocol
+    private let episodePersistencyService: EpisodePersistencyService
     
     init(persistency: PersistenceController, seasonService: SeasonServiceProtocol) {
         context = persistency.container.viewContext
         self.seasonService = seasonService
+        episodePersistencyService = EpisodePersistencyService(persistency: persistency)
     }
     
     
@@ -36,6 +38,8 @@ class SeasonPersistencyService {
                 newSeason.number = Int64(season.number)
                 newSeason.imageUrl = FileService.saveImageToFileSystem(image: season.imageUrl)
                 show.addToSeasons(newSeason)
+                self.episodePersistencyService.saveEpisodesOfSeason(show: ShowModel.convertFromShow(show: show, index: 1),
+                                                                    season: newSeason)
             }
             
             // only save once per batch insert

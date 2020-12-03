@@ -9,11 +9,11 @@ import Foundation
 
 struct SeasonApiModel: Codable {
     let title: String
-    let overview: String
-    let episode_count: Int
-    let aired_episodes: Int
+    let overview: String?
+    let episode_count: Int?
+    let aired_episodes: Int?
     let first_aired: String?
-    let number: Int
+    let number: Int?
     let ids: SeasonIdModel
 }
 

@@ -21,18 +21,19 @@ class SeasonService: SeasonServiceProtocol {
             }
             
             do {
+                
                 let result = try JSONDecoder().decode([SeasonApiModel].self, from: response.data!)
                 for data in result {
                     seasons.append(SeasonModel(id: UUID(),
                                                title: data.title,
-                                               overview: data.overview,
-                                               episodeCount: data.episode_count,
-                                               airedEpisodes: data.aired_episodes,
+                                               overview: data.overview ?? "",
+                                               episodeCount: data.episode_count ?? 0,
+                                               airedEpisodes: data.aired_episodes ?? 0,
                                                firstAired: TraktApi.convertToDate(date: data.first_aired),
-                                               number: data.number,
+                                               number: data.number ?? 0,
                                                trakt: data.ids.trakt,
-                                               tvdb: data.ids.tvdb,
-                                               tmdb: data.ids.tmdb,
+                                               tvdb: data.ids.tvdb ?? 0,
+                                               tmdb: data.ids.tmdb ?? 0,
                                                imageUrl: show.bannerImageURL))
                 }
             }catch{

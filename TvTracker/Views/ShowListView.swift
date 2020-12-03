@@ -36,6 +36,7 @@ struct ShowListView: View {
                 searchText = query
                 self.dataSource.searchShows(query: query, initialize: true)
             }, cancel: {
+                self.searchText = ""
                 self.dataSource.resetSearch()
             }))
             .navigationBarTitle(self.title)

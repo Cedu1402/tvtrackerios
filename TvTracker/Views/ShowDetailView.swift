@@ -59,7 +59,8 @@ struct ShowDetailView: View {
                 }
             }
             .padding(.horizontal, 10)
-        }.onAppear(perform: {
+        }
+        .onReceive(self.dataSource.$seasons, perform: { _ in
             self.dataSource.loadContent()
         })
         .navigationBarTitle(Text(show.title), displayMode: .inline)
