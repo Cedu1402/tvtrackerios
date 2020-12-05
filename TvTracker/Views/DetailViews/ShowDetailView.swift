@@ -21,19 +21,24 @@ struct ShowDetailView: View {
     
     var body: some View {
         ScrollView {
-            GeometryReader { geometry in
-                ListImageView(url: show.bannerImageURL)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width,
-                           height: geometry.size.height)
-                    .offset(y: geometry.frame(in: .global).minY / 9)
-                    .clipped()
-            }.frame(height: 400)
+            GeometryReader{reader in
+                            
+                // Parallax
+                if reader.frame(in: .global).minY > -220 {
+                    ListImageView(url: show.bannerImageURL)
+                        .aspectRatio(contentMode: .fill)
+                        .offset(y: -reader.frame(in: .global).minY + 80)
+                        .frame(width: UIScreen.main.bounds.width, height:  reader.frame(in: .global).minY > 0 ? reader.frame(in: .global).minY + 220 : 220)
+                }
+            }
+            .frame(height: 300)
+            
             VStack(alignment: .leading) {
                 Text(show.title).font(.title)
                     .bold()
                 Text(show.overview)
                     .padding(.top, 10)
+                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 
                 VStack {
                     if(dataSource.seasons.count > 0) {
@@ -58,7 +63,10 @@ struct ShowDetailView: View {
                     }
                 }
             }
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
             .padding(.horizontal, 10)
+            .padding(.top, 12)
+            .background(Color.white)
         }
         .onReceive(self.dataSource.$seasons, perform: { _ in
             self.dataSource.loadContent()
@@ -77,7 +85,7 @@ struct ShowDetailView_Previews: PreviewProvider {
         @State() var show =  ShowModel(
          id: UUID(),
          title: "test show",
-         overview: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+         overview: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
          trakt: 0,
          imdb: "",
          tvdb: 0,

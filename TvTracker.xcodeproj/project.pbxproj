@@ -299,23 +299,39 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8405BF07257B914A00D231D7 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				40B0927C257977FD00A7E0C3 /* EpisodeDetailView.swift */,
+				8419921325757A0B00B0AD3B /* SeasonDetailView.swift */,
+				84FB19A9256D327B004692BC /* ShowDetailView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		8405BF0B257B91C800D231D7 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */,
+				40CAFE6E2569732D002890DE /* ListImageView.swift */,
+				84EF056E2569B82500D62C7D /* SearchBar.swift */,
+				40106C152575A5BD008A0605 /* SearchBarView.swift */,
+				40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
 		84EDF06D25692C6C00037F00 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84EDF0582569279800037F00 /* ReleaseView.swift */,
-				84EDF05D2569280000037F00 /* FavoritesView.swift */,
-				40C69FA92559C3EE00B05DBD /* ContentView.swift */,
-				40CAFE6E2569732D002890DE /* ListImageView.swift */,
-				84EF056E2569B82500D62C7D /* SearchBar.swift */,
-				4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */,
-				84FB19A9256D327B004692BC /* ShowDetailView.swift */,
-				405D4C012574E413008C6F9E /* ShowRowView.swift */,
+				8405BF07257B914A00D231D7 /* DetailViews */,
+				8405BF0B257B91C800D231D7 /* SharedViews */,
 				84CA63F325754687009BF76B /* AboutView.swift */,
-				8419921325757A0B00B0AD3B /* SeasonDetailView.swift */,
+				40C69FA92559C3EE00B05DBD /* ContentView.swift */,
+				84EDF05D2569280000037F00 /* FavoritesView.swift */,
+				84EDF0582569279800037F00 /* ReleaseView.swift */,
 				40E7B495257585F500B04A73 /* ShowListView.swift */,
-				40106C152575A5BD008A0605 /* SearchBarView.swift */,
-				40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */,
-				40B0927C257977FD00A7E0C3 /* EpisodeDetailView.swift */,
+				405D4C012574E413008C6F9E /* ShowRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

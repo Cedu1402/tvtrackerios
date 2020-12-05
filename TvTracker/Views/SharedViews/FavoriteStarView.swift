@@ -30,12 +30,12 @@ struct FavoriteStarView: View {
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Favoriten"),
                   message: Text(self.show.favorite ?
-                                    "\(self.show.title) aus Favoriten entfernen?" :
-                                    "\(self.show.title) zu Favoriten hinzufügen?" ),
+                                    "Remove \(self.show.title) from favorites?" :
+                                    "Add \(self.show.title) to favorites?" ),
                   primaryButton: .default(Text("OK")){
                     self.onFavorite()
                   },
-                  secondaryButton: .default(Text("Abbrechen"))
+                  secondaryButton: .default(Text("Cancel"))
             )
         }
         .buttonStyle(PlainButtonStyle())
@@ -57,11 +57,11 @@ struct FavoriteStarDeleteOnlyView: View {
                 .foregroundColor(Color(red: 1, green: 0.85, blue: 0))
         }.alert(isPresented: $showingAlert) {
             Alert(title: Text("Favoriten"),
-                  message: Text("\(show.title ?? "") aus Favoriten entfernen?"),
+                  message: Text("Remove \(show.title ?? "") from favorites?"),
                   primaryButton: .default(Text("OK")){
                         self.onRemove()
                   },
-                  secondaryButton: .default(Text("Abbrechen"))
+                  secondaryButton: .default(Text("Cancel"))
             )
         }.buttonStyle(PlainButtonStyle())
     }

@@ -22,19 +22,24 @@ struct SeasonDetailView: View {
     
     var body: some View {
         ScrollView {
-            GeometryReader { geometry in
-                ListImageView(url: season.imageUrl)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width,
-                           height: geometry.size.height)
-                    .offset(y: geometry.frame(in: .global).minY / 9)
-                    .clipped()
-            }.frame(height: 400)
+            GeometryReader{reader in
+                            
+                // Parallax
+                if reader.frame(in: .global).minY > -220 {
+                    ListImageView(url: season.imageUrl)
+                        .aspectRatio(contentMode: .fill)
+                        .offset(y: -reader.frame(in: .global).minY + 80)
+                        .frame(width: UIScreen.main.bounds.width, height:  reader.frame(in: .global).minY > 0 ? reader.frame(in: .global).minY + 220 : 220)
+                }
+            }
+            .frame(height: 300)
+            
             VStack(alignment: .leading) {
                 Text(season.title).font(.title)
                     .bold()
                 Text(season.overview)
                     .padding(.top, 10)
+                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 
                 VStack {
                     if(dataSource.episodes.count > 0) {
@@ -56,8 +61,11 @@ struct SeasonDetailView: View {
                         ProgressView()
                     }
                 }
-                
             }
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .padding(.horizontal, 10)
+            .padding(.top, 12)
+            .background(Color.white)
         }
         .onReceive(self.dataSource.$episodes, perform: { _ in
            self.dataSource.loadContent()
