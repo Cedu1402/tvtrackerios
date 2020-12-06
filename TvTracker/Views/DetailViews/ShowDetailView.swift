@@ -37,10 +37,6 @@ struct ShowDetailView: View {
                 Text(show.title).font(.title)
                     .bold()
                 
-                FavoriteStarView(show: show){
-                    dataSource.changeFavoriteFlag(show: show)
-                }.environmentObject(dataSource)
-                
                 Text(show.overview)
                     .padding(.top, 10)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
