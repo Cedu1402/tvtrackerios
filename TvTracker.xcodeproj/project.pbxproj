@@ -40,6 +40,7 @@
 		40CAFE6F2569732D002890DE /* ListImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CAFE6E2569732D002890DE /* ListImageView.swift */; };
 		40E7B496257585F500B04A73 /* ShowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E7B495257585F500B04A73 /* ShowListView.swift */; };
 		8419921425757A0B00B0AD3B /* SeasonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419921325757A0B00B0AD3B /* SeasonDetailView.swift */; };
+		84BBDCD3257D1B3100FA3627 /* FavoriteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBDCD2257D1B3100FA3627 /* FavoriteTextView.swift */; };
 		84CA63EF257532C1009BF76B /* SeasonDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63EE257532C1009BF76B /* SeasonDataSource.swift */; };
 		84CA63F425754687009BF76B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63F325754687009BF76B /* AboutView.swift */; };
 		84EDF0592569279800037F00 /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EDF0582569279800037F00 /* ReleaseView.swift */; };
@@ -50,7 +51,6 @@
 		84EF055E2569AB7300D62C7D /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF055A2569AB7300D62C7D /* SeasonModel.swift */; };
 		84EF05652569AB9700D62C7D /* TraktApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05622569AB9700D62C7D /* TraktApi.swift */; };
 		84EF05672569AB9700D62C7D /* ShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF05642569AB9700D62C7D /* ShowService.swift */; };
-		84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF056E2569B82500D62C7D /* SearchBar.swift */; };
 		84FB19AA256D327B004692BC /* ShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB19A9256D327B004692BC /* ShowDetailView.swift */; };
 		84FED80D256AAF6A0057C5B4 /* ShowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FED80C256AAF6A0057C5B4 /* ShowDataSource.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +110,7 @@
 		40CAFE6E2569732D002890DE /* ListImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImageView.swift; sourceTree = "<group>"; };
 		40E7B495257585F500B04A73 /* ShowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListView.swift; sourceTree = "<group>"; };
 		8419921325757A0B00B0AD3B /* SeasonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailView.swift; sourceTree = "<group>"; };
+		84BBDCD2257D1B3100FA3627 /* FavoriteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTextView.swift; sourceTree = "<group>"; };
 		84CA63EE257532C1009BF76B /* SeasonDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDataSource.swift; sourceTree = "<group>"; };
 		84CA63F325754687009BF76B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		84EDF0582569279800037F00 /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		84EF055A2569AB7300D62C7D /* SeasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
 		84EF05622569AB9700D62C7D /* TraktApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktApi.swift; sourceTree = "<group>"; };
 		84EF05642569AB9700D62C7D /* ShowService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowService.swift; sourceTree = "<group>"; };
-		84EF056E2569B82500D62C7D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		84FB19A9256D327B004692BC /* ShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailView.swift; sourceTree = "<group>"; };
 		84FED80C256AAF6A0057C5B4 /* ShowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				4057AE4C256B1F140099EE8D /* FavoriteStarView.swift */,
+				84BBDCD2257D1B3100FA3627 /* FavoriteTextView.swift */,
 				40CAFE6E2569732D002890DE /* ListImageView.swift */,
-				84EF056E2569B82500D62C7D /* SearchBar.swift */,
 				40106C152575A5BD008A0605 /* SearchBarView.swift */,
 				40106C1A2575A5DD008A0605 /* ViewControllerResolver.swift */,
 			);
@@ -478,7 +478,6 @@
 				405D4BE7257058ED008C6F9E /* SeasonServiceProtocol.swift in Sources */,
 				40B0927D257977FD00A7E0C3 /* EpisodeDetailView.swift in Sources */,
 				40106C1B2575A5DD008A0605 /* ViewControllerResolver.swift in Sources */,
-				84EF056F2569B82500D62C7D /* SearchBar.swift in Sources */,
 				405B2D1D25702CD100A42BFA /* EpisodeService.swift in Sources */,
 				40C69FB12559C3F200B05DBD /* Persistence.swift in Sources */,
 				84EF055D2569AB7300D62C7D /* EpisodeModel.swift in Sources */,
@@ -498,6 +497,7 @@
 				40C69FAA2559C3EE00B05DBD /* ContentView.swift in Sources */,
 				40C69FA82559C3EE00B05DBD /* TvTrackerApp.swift in Sources */,
 				4057AE4D256B1F140099EE8D /* FavoriteStarView.swift in Sources */,
+				84BBDCD3257D1B3100FA3627 /* FavoriteTextView.swift in Sources */,
 				84CA63EF257532C1009BF76B /* SeasonDataSource.swift in Sources */,
 				40E7B496257585F500B04A73 /* ShowListView.swift in Sources */,
 				84CA63F425754687009BF76B /* AboutView.swift in Sources */,

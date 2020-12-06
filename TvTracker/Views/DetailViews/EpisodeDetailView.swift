@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-private var dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd.MM.yyyy"
-    return dateFormatter
-}()
-
 struct EpisodeDetailView: View {
     @State var episode: EpisodeModel
     
@@ -39,8 +33,10 @@ struct EpisodeDetailView: View {
                 Text("First aired: \(episode.firstAired, formatter: dateFormatter)")
                     .padding(.top, 12)
                 
-                Text("Runtime: \(episode.runtime)")
-                    .padding(.top, 8)
+                if(episode.runtime > 0) {
+                    Text("Runtime: \(episode.runtime)")
+                        .padding(.top, 8)
+                }
                 
                 Text(episode.overview)
                     .padding(.vertical, 10)
@@ -53,6 +49,12 @@ struct EpisodeDetailView: View {
         }
     }
 }
+
+private var dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd.MM.yyyy"
+    return dateFormatter
+}()
 
 struct EpisodeDetailView_Previews: PreviewProvider {
     static var previews: some View {

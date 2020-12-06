@@ -50,7 +50,6 @@ class SeasonDataSource: ObservableObject {
         }
     }
     
-    
     private func loadContentCoreData(show: ShowModel) {
         if (isLoadingPage || self.seasons.count > 0 || !self.canLoadMorePages) {
             return
