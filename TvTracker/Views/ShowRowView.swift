@@ -30,15 +30,21 @@ struct ShowRowView: View {
                         dataSource.changeFavoriteFlag(show: show)
                     }.environmentObject(dataSource)
                     .padding(.trailing, 10)
-                }.padding(.bottom, 10)
-                Text(show.overview)
-                    .frame(minWidth: 0,
-                           maxWidth: .infinity,
-                           minHeight: 0,
-                           maxHeight: 80,
-                           alignment: .topLeading)
-                    .truncationMode(.tail)
-                    .font(.system(size: 12))
+                }.padding(.bottom, 6)
+                
+                if(dataSource.favoriteView) {
+                    FavoriteTextView(show: show)
+                        .environmentObject(self.dataSource)
+                } else {
+                    Text(show.overview)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: 0,
+                               maxHeight: 80,
+                               alignment: .topLeading)
+                        .truncationMode(.tail)
+                        .font(.system(size: 12))
+                }
             }.padding(.leading, 10)
         }
     }

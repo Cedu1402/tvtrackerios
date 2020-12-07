@@ -163,6 +163,60 @@ class ShowDataSource: ObservableObject {
             self.loadMoreContent()
         }
     }
+    
+    func getLatestEpisodeOfShow(show: ShowModel) -> Episode? {
+        if(show.favorite) {
+            
+            var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb)
+            
+            seasons?.sort {
+                $0.number > $1.number
+            }
+            
+            for season in seasons! {
+                var episodes = self.showPersitencyService.getEpisodesOfShowAndSeason(imdb: show.imdb, number: Int(season.number))
+                
+                episodes?.sort {
+                    $0.number > $1.number
+                }
+                
+                for episode in episodes! {
+                    if(Date() > episode.firstAired!) {
+                        return episode
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func getNextEpisodeOfShow(show: ShowModel) -> Episode? {
+        if(show.favorite) {
+            
+            var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb)
+            
+            seasons?.sort {
+                $0.number < $1.number
+            }
+            
+            for season in seasons! {
+                var episodes = self.showPersitencyService.getEpisodesOfShowAndSeason(imdb: show.imdb, number: Int(season.number))
+                
+                episodes?.sort {
+                    $0.number < $1.number
+                }
+                
+                for episode in episodes! {
+                    if(Date() <= episode.firstAired!) {
+                        return episode
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
 
     private func loadMoreContent() {
         guard (!isLoadingPage && canLoadMorePages) || self.favoriteView else {

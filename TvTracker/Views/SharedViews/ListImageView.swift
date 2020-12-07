@@ -35,7 +35,7 @@ struct ListImageView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .clipShape(Rectangle())
+                        .frame(minWidth: 0, maxWidth: .infinity)
                  })
     }
 }
