@@ -34,7 +34,7 @@ struct EpisodeDetailView: View {
                     .padding(.top, 12)
                 
                 if(episode.runtime > 0) {
-                    Text("Runtime: \(episode.runtime)")
+                    Text("Runtime: \(episode.runtime) min")
                         .padding(.top, 8)
                 }
                 
@@ -42,7 +42,7 @@ struct EpisodeDetailView: View {
                     .padding(.vertical, 10)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             }
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, maxHeight: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.top, 12)
             .background(Color.white)

@@ -74,7 +74,7 @@ struct FavoriteTextView: View {
 
 private var dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd MMM"
+    dateFormatter.dateFormat = "dd MMM YY"
     return dateFormatter
 }()
 
