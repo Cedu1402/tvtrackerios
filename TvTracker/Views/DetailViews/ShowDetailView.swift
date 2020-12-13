@@ -48,6 +48,12 @@ struct ShowDetailView: View {
                             .bold()
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.vertical, 10)
+                    } else {
+                        Text("No seasons found...")
+                            .font(.subheadline)
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.vertical, 10)
                     }
                     ForEach(dataSource.seasons) {
                      season in
@@ -64,7 +70,7 @@ struct ShowDetailView: View {
                     }
                 }
             }
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 200, maxHeight: .infinity, alignment: .leading)
             .padding(.horizontal, 10)
             .padding(.top, 12)
             .background(Color.white)
