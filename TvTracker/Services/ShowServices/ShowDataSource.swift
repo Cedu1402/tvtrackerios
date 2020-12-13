@@ -167,13 +167,16 @@ class ShowDataSource: ObservableObject {
     func getLatestEpisodeOfShow(show: ShowModel) -> Episode? {
         if(show.favorite) {
             
-            var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb)
+            guard var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb) else {
+                return nil
+            }
             
-            seasons?.sort {
+            
+            seasons.sort {
                 $0.number > $1.number
             }
             
-            for season in seasons! {
+            for season in seasons {
                 var episodes = self.showPersitencyService.getEpisodesOfShowAndSeason(imdb: show.imdb, number: Int(season.number))
                 
                 episodes?.sort {
@@ -194,13 +197,17 @@ class ShowDataSource: ObservableObject {
     func getNextEpisodeOfShow(show: ShowModel) -> Episode? {
         if(show.favorite) {
             
-            var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb)
+            // var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb)
             
-            seasons?.sort {
+            guard var seasons = self.showPersitencyService.getSeasonsOfShow(imdb: show.imdb) else {
+                return nil
+            }
+            
+            seasons.sort {
                 $0.number < $1.number
             }
             
-            for season in seasons! {
+            for season in seasons {
                 var episodes = self.showPersitencyService.getEpisodesOfShowAndSeason(imdb: show.imdb, number: Int(season.number))
                 
                 episodes?.sort {
